@@ -8,6 +8,10 @@ module.exports = {
     screens: {
       sm: "340px",
       md:"540px",
+    },
+    fontFamily: {
+      Lenxeng: ["Lexend Giga", "serif"],
+      Meow: [ "Meow Script", "serif"]
     }
   },
   plugins: [],
