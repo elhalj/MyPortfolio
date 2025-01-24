@@ -13,7 +13,8 @@ import { FaReact, FaNodeJs, FaBootstrap } from "react-icons/fa6";
 import { SiMongodb } from "react-icons/si";
 import { SiExpressvpn } from "react-icons/si";
 import { SiTailwindcss } from "react-icons/si";
-import logo from "./f4.png";
+import logo from "../assets/photo3.jpg";
+import about from "../assets/photo1.jpg"
 import Contact from "./Contact";
 
 function Main() {
@@ -126,7 +127,7 @@ function Main() {
 
           <div className="relative content-center bg-slate-100 m-auto mt-4">
             <img
-              src=""
+              src={about}
               alt="about"
               className="h-[300px] w-[300px] md:h-[600px] md:w-[600px] object-cover"
             />
