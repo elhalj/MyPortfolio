@@ -21,7 +21,7 @@ function Nav() {
             {!active && <div className=" md:flex md:flex-row sm:flex-col font-mono tracking-widest sm:bg-slate-200 md:bg-slate-300 sm:h-64 md:h-10 sm:w-[130px] overflow-hidden md:w-auto justify-between gap-36 py-2 px-2 md:translate-x-0  sm:translate-x-[90px] duration-300">
               <h4 className='cursor-pointer my-4'><NavLink to="#about">About</NavLink></h4>
               <h4 className='cursor-pointer my-4'><NavLink to="#contact">Contact</NavLink></h4>
-              <h4 className='cursor-pointer my-4'><NavLink to="#blog">Blog</NavLink></h4>
+              <h4 className='cursor-pointer my-4'><NavLink to="Blog">Blog</NavLink></h4>
               <h4 className='cursor-pointer my-4'><NavLink to="#portfolio">Portfolio</NavLink></h4>
             </div>}
             {active && <RiMenu4Line className='cursor-pointer md:hidden z-10 text-3xl color text-purple-500 w-10 rounded-full h-10' onClick={() => setActive(!active)}/>}
