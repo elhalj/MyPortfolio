@@ -7,7 +7,7 @@ module.exports = {
     extend: {},
     screens: {
       sm: "340px",
-      md:"540px",
+      md:"868px",
     },
     fontFamily: {
       Lenxeng: ["Lexend Giga", "serif"],

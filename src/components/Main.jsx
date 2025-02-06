@@ -14,17 +14,18 @@ import { SiMongodb } from "react-icons/si";
 import { SiExpressvpn } from "react-icons/si";
 import { SiTailwindcss } from "react-icons/si";
 import logo from "../assets/photo3.jpg";
-import about from "../assets/photo2.jpg";
+import about from "../assets/photo2.webp";
 import cert from "../assets/cert.png";
 import cv from "../assets/cv.png";
-import ecommerce from "../assets/path/to/ecommerce.png"
+import ecommerce from "../assets/path/to/ecommerce.png";
+import moonchat from "../assets/path/to/moonchat.png";
 import Contact from "./Contact";
 
 function Main() {
   return (
     <>
       <section className="bg-slate-50">
-        <div className="md:flex md:justify-center">
+        <div className="flex flex-col justify-center md:flex md:flex-row">
           <div className="relative container m-auto p-auto">
             <div className="md:h-[600px] md:w-[600px] sm:h-[300px] sm:w-[300px] bg-slate-100 m-auto mt-4 rounded-full text-center relative content-center   ">
               <img
@@ -32,14 +33,15 @@ function Main() {
                 alt="logo"
                 className="md:h-[600px] md:w-[600px] sm:h-[300px] sm:w-[300px] rounded-full object-cover text-center"
               />
+              <FaRegFileCode className="absolute top-[50%] md:-left-2 text-5xl left-1 text-slate-500 bg-slate-300 p-1 rounded-full animate-pulse" />
+              <LuFolderCode className="absolute md:-top-1 -top-4 text-5xl right-[50%] text-slate-500 bg-slate-300 p-1 rounded-full animate-pulse" />
+              <RiCodeView className="absolute -right-2  top-[50%] text-5xl text-slate-500 bg-slate-300 p-1 rounded-full animate-pulse" />
+              <div className="absolute right-0 bottom-10 bg-slate-300 p-1 rounded-xl animate-pulse">
+                {" "}
+                07 Months Experience
+              </div>
             </div>
-            <FaRegFileCode className="absolute top-[50%] md:-left-2 text-5xl left-1 text-slate-500 bg-slate-300 p-1 rounded-full" />
-            <LuFolderCode className="absolute md:top-2 -top-4 text-5xl right-[50%] text-slate-500 bg-slate-300 p-1 rounded-full" />
-            <RiCodeView className="absolute right-2 md:-right-16 top-[50%] text-5xl text-slate-500 bg-slate-300 p-1 rounded-full" />
-            <div className="absolute right-0 bottom-4 bg-slate-300 p-1 rounded-xl">
-              {" "}
-              07 Months Experience
-            </div>
+
             <div className="absolute">{/* logo */}</div>
           </div>
           <div className="container m-auto mt-4 p-auto gap-4 md:-translate-x-10 md:h-[600px] md:flex md:flex-col md:justify-around  bg-slate-100">
@@ -153,7 +155,7 @@ function Main() {
       <section className="bg-slate-50 mt-20 mb-20 md:mt-52">
         <div>
           <h1 className="font-Meow text-4xl text-center my-5 p-2">Portfolio</h1>
-          <hr  className="h-8"/>
+          <hr className="h-8" />
           <div className="flex flex-wrap justify-around p-4">
             {/* Add portfolio items here */}
             <div>
@@ -166,18 +168,34 @@ function Main() {
                 />
               </div>
               <div className="text-center mt-2">
-                <a href="../assets/path/to/certificat.pdf" target="_blank" rel="noopener noreferrer">
-                  <button className="border border-s-lime-500 p-2 w-20 bg-slate-300 drop-shadow-md">Voir</button>
+                <a
+                  href="../assets/path/to/certificat.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="border border-s-lime-500 p-2 w-20 bg-slate-300 drop-shadow-md">
+                    Voir
+                  </button>
                 </a>
               </div>
             </div>
             <div>
               <h1 className="text-center">CV</h1>
               <div>
-                <img src={cv} alt="CV" className="h-[300px] w-[300px] md:h-[300px] md:w-[300px] rounded-xl"/>
+                <img
+                  src={cv}
+                  alt="CV"
+                  className="h-[300px] w-[300px] md:h-[300px] md:w-[300px] rounded-xl"
+                />
                 <div className="text-center mt-2">
-                  <a href="../assets/path/to/cv.pdf" target="_blank" rel="noopener noreferrer">
-                    <button className="border border-s-lime-500 p-2 w-20 bg-slate-300 drop-shadow-md">Voir</button>
+                  <a
+                    href="../assets/path/to/cv.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button className="border border-s-lime-500 p-2 w-20 bg-slate-300 drop-shadow-md">
+                      Voir
+                    </button>
                   </a>
                 </div>
               </div>
@@ -188,33 +206,41 @@ function Main() {
       <section className="bg-slate-100 mt-20 mb-20 md:mt-52">
         <div>
           <h1 className="font-Meow text-4xl text-center my-5 p-2">Projets</h1>
-          <hr className="h-8"/>
+          <hr className="h-8" />
           <div className="flex flex-wrap justify-around p-4">
             {/* Add project items here */}
-            <div className="max-w-sm rounded overflow-hidden shadow-lg m-4">
-              <img className="w-full" src={ecommerce} alt="Project 1"/>
+            <div className="max-w-sm rounded-lg overflow-hidden shadow-lg m-4">
+              <img className="w-full" src={ecommerce} alt="Project 1" />
               <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">Projet 1</div>
-                <p className="text-gray-700 text-base">
-                  Site E-commerce.
-                </p>
+                <p className="text-gray-700 text-base">Site E-commerce.</p>
               </div>
               <div className="px-6 pt-4 pb-2">
-                <a href="https://fresh-fashon.onrender.com" target="_blank" rel="noopener noreferrer" className="inline-block bg-slate-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <a
+                  href="https://fresh-fashon.onrender.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-slate-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                >
                   Voir le projet
                 </a>
               </div>
             </div>
-            <div className="max-w-sm rounded overflow-hidden shadow-lg m-4">
-              <img className="w-full" src="path/to/project2.jpg" alt="Project 2"/>
+            <div className="max-w-sm rounded-lg overflow-hidden shadow-lg m-4">
+              <img className="w-full" src={moonchat} alt="Project 2" />
               <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">Projet 2</div>
                 <p className="text-gray-700 text-base">
-                  En Cours.
+                  Site de chat en ligne.
                 </p>
               </div>
               <div className="px-6 pt-4 pb-2">
-                <a href="https://github.com/username/project2" target="_blank" rel="noopener noreferrer" className="inline-block bg-slate-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <a
+                  href="https://moonchat-fn47.onrender.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-slate-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                >
                   Voir le projet
                 </a>
               </div>
@@ -223,7 +249,7 @@ function Main() {
           </div>
         </div>
       </section>
-      
+
       <Contact />
     </>
   );
