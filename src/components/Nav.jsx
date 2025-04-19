@@ -6,6 +6,16 @@ import { Link, NavLink } from "react-router-dom";
 function Nav() {
   const [active, setActive] = useState(true);
 
+  // window.addEventListener("click", (event) => {
+  //   if (event.target === null) {
+  //     setActive(!active);
+  //   }
+  // });
+  // window.addEventListener("click", (event) => {
+  //   if (!event.target.matches(".nav__menu") && !event.target.matches(".nav__menu *")) {
+  //     setActive(!active);
+  //   }
+  // });
   return (
     <>
       <header className="top-0 bg-slate-300 z-10 sticky">
@@ -24,16 +34,19 @@ function Nav() {
             }
           >
             <h4 className="cursor-pointer">
-              <NavLink to="#about">About</NavLink>
+              <a href="#about">About</a>
             </h4>
             <h4 className="cursor-pointer">
-              <NavLink to="#contact">Contact</NavLink>
+              <a href="#contact">Contact</a>
             </h4>
             <h4 className="cursor-pointer">
               <NavLink to="Blog">Blog</NavLink>
             </h4>
             <h4 className="cursor-pointer">
-              <NavLink to="#portfolio">Portfolio</NavLink>
+              <a href="#portfolio">Portfolio</a>
+            </h4>
+            <h4 className="cursor-pointer">
+              <a href="#projets">Projets</a>
             </h4>
           </div>
 

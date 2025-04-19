@@ -218,7 +218,7 @@ function Main() {
           </div>
         </div>
       </section>
-      <section className="bg-slate-50 mt-20 mb-20 md:mt-52">
+      <section id="portfolio" className="bg-slate-50 mt-20 mb-20 md:mt-52">
         <div>
           <h1 className="font-Meow text-4xl text-center my-5 p-2">Portfolio</h1>
           <hr className="h-8" />
@@ -269,7 +269,7 @@ function Main() {
           </div>
         </div>
       </section>
-      <section className="bg-slate-100 mt-20 mb-20 md:mt-52">
+      <section id="projets" className="bg-slate-100 mt-20 mb-20 md:mt-52">
         <div>
           <h1 className="font-Meow text-4xl text-center my-5 p-2">Projets</h1>
           <hr className="h-8" />

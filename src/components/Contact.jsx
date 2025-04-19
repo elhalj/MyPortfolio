@@ -45,7 +45,7 @@ function Contact() {
   }
   return (
     <>
-      <div className="container mx-auto p-4">
+      <div id='contact' className="container mx-auto p-4">
         <h1 className="text-3xl font-bold text-center mb-8">Contact Us</h1>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <label htmlFor="name">Nom</label>
