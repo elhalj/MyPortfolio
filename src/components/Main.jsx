@@ -19,6 +19,7 @@ import cert from "../assets/cert.png";
 import cv from "../assets/cv.png";
 import ecommerce from "../assets/path/to/ecommerce.png";
 import moonchat from "../assets/path/to/moonchat.png";
+import blog from "../assets/path/to/Blog.png";
 import bck from "../assets/bck.jpg";
 import Contact from "./Contact";
 import Description from "./Description";
@@ -298,6 +299,25 @@ function Main() {
                 <div className="font-bold text-xl mb-2">Projet 2</div>
                 <p className="text-gray-700 text-base">
                   Site de chat en ligne.
+                </p>
+              </div>
+              <div className="px-6 pt-4 pb-2">
+                <a
+                  href="https://moonchat-fn47.onrender.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-slate-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                >
+                  Voir le projet
+                </a>
+              </div>
+            </div>
+            <div className="max-w-sm rounded-lg overflow-hidden shadow-lg m-4 hover:scale-105 hover:translate-y-0 transition-transform duration-300">
+              <img className="w-full" src={blog} alt="Project 2" />
+              <div className="px-6 py-4">
+                <div className="font-bold text-xl mb-2">Projet 3</div>
+                <p className="text-gray-700 text-base">
+                  Blog Static version 0.0.1
                 </p>
               </div>
               <div className="px-6 pt-4 pb-2">
