@@ -1,6 +1,4 @@
 import React from 'react'
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
-import { MdOutlineMail } from "react-icons/md";
 import emailjs from 'emailjs-com';
 
 function Contact() {
@@ -8,79 +6,95 @@ function Contact() {
     name: '',
     email: '',
     message: ''
-  })
+  });
 
   const handleChange = (e) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value
-    })
-  }
+    });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+
+    // IMPORTANT: These IDs should be stored in environment variables for security.
+    const serviceID = 'service_2j4m9j4';
+    const templateID = 'template_6j4m9j4';
+    const userID = 'user_5X3vQvqXlYhLsJcZJhO6F';
+
     const templateParams = {
       from_name: form.name,
       from_email: form.email,
       message: form.message,
       to_email: "wilsonikedakoffi7@gmail.com",
     };
-    emailjs.send(
-      'service_2j4m9j4',
-      'template_6j4m9j4',
-      templateParams,
-      'user_5X3vQvqXlYhLsJcZJhO6F'
-    )
+
+    emailjs.send(serviceID, templateID, templateParams, userID)
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
-        setForm({
-          name: '',
-          email: '',
-          message: ''
-        })
+        alert('Message sent successfully!');
+        setForm({ name: '', email: '', message: '' });
       })
       .catch((err) => {
         console.log('FAILED...', err);
+        alert('Failed to send message. Please try again later.');
       });
-  }
-  return (
-    <>
-      <div id='contact' className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold text-center mb-8">Contact Us</h1>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <label htmlFor="name">Nom</label>
-          <input name="name" onChange={handleChange} type="text" id="name" className="border border-gray-300 p-2 rounded-md" />
-          <label htmlFor="email">Email</label>
-          <input name="email" onChange={handleChange} type="email" id="email" className="border border-gray-300 p-2 rounded-md" />
-          <label htmlFor="message">Message</label>
-          <textarea name="message" onChange={handleChange} id="message" className="border border-gray-300 p-2 rounded-md" />
-          <button type="submit" className="bg-blue-500 text-white p-2 rounded-md">Envoyer</button>
-        </form>
+  };
 
-        <div className="flex flex-col md:flex-row justify-evenly items-center mt-4">
-          <div className="mb-8 md:mb-0">
-            <h2 className="text-xl font-semibold">Social Media</h2>
-            <div className="flex gap-4 mt-4">
-              <FaFacebookF className="text-blue-600 text-2xl cursor-pointer" />
-              <FaInstagram className="text-pink-600 text-2xl cursor-pointer" />
-              <FaLinkedinIn className="text-blue-700 text-2xl cursor-pointer" />
-              <FaWhatsapp className="text-green-500 text-2xl cursor-pointer" />
-            </div>
+  return (
+    <section id="contact" className="py-20 px-4 md:px-12 bg-gray-900">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl font-bold text-cyan-400">Contactez-moi</h2>
+        <p className="text-lg text-gray-400 mt-2">N'hésitez pas à me laisser un message.</p>
+      </div>
+      <div className="max-w-2xl mx-auto">
+        <form onSubmit={handleSubmit} className="space-y-8 bg-gray-800 p-8 rounded-lg shadow-lg">
+          <div>
+            <label htmlFor="name" className="block text-lg font-medium text-gray-300 mb-2">Nom</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={form.name}
+              onChange={handleChange}
+              className="w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300"
+              required
+            />
           </div>
           <div>
-            <h2 className="text-xl font-semibold text-center">Email Us</h2>
-            <div className="flex items-center gap-2 mt-4">
-              <MdOutlineMail className="text-red-500 text-2xl" />
-              <p>wilsonikedakoffi7@gmail.com</p>
-            </div>
+            <label htmlFor="email" className="block text-lg font-medium text-gray-300 mb-2">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={form.email}
+              onChange={handleChange}
+              className="w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300"
+              required
+            />
           </div>
-        </div>
-        <div className="mt-8">
-          <h2 className="text-xl font-semibold text-center">Address</h2>
-          <p className="text-center mt-2">27 Yop Ile Boulay, Abidjan</p>
-        </div>
+          <div>
+            <label htmlFor="message" className="block text-lg font-medium text-gray-300 mb-2">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              value={form.message}
+              onChange={handleChange}
+              className="w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 rounded-lg transform transition-all duration-300 hover:-translate-y-1 shadow-lg"
+          >
+            Envoyer le Message
+          </button>
+        </form>
       </div>
-    </>
+    </section>
   );
 }
 
