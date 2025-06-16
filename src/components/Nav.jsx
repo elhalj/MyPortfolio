@@ -1,69 +1,89 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RiMenu4Line } from "react-icons/ri";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+const navLinks = [
+  { title: "About", href: "/#about" },
+  { title: "Portfolio", href: "/#portfolio" },
+  { title: "Projets", href: "/#projects" },
+  { title: "Contact", href: "/#contact" },
+  { title: "Blog", href: "/blog" },
+];
 
 function Nav() {
-  const [active, setActive] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  // window.addEventListener("click", (event) => {
-  //   if (event.target === null) {
-  //     setActive(!active);
-  //   }
-  // });
-  // window.addEventListener("click", (event) => {
-  //   if (!event.target.matches(".nav__menu") && !event.target.matches(".nav__menu *")) {
-  //     setActive(!active);
-  //   }
-  // });
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleLinkClick = () => {
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
-    <>
-      <header className="top-0 bg-slate-300 z-10 sticky">
-        <nav className="flex justify-between h-14">
-          <div>
-            <h1 className="font-Meow text-5xl translate-x-3 font-bold">
-              <Link to="/">Elhalj.</Link>
-            </h1>
-          </div>
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "bg-gray-900/80 backdrop-blur-lg shadow-lg" : "bg-transparent"
+        }`}
+    >
+      <nav className="container mx-auto flex items-center justify-between p-4 text-white">
+        <h1 className="text-3xl font-bold tracking-wider">
+          <Link to="/" className="hover:text-cyan-400 transition-colors">
+            Elhalj.
+          </Link>
+        </h1>
 
-          <div
-            className={
-              active
-                ? "hidden md:flex justify-between gap-36 py-2 px-2 font-Meow tracking-tighter text-4xl"
-                : "bg-slate-200 w-full h-52 flex flex-col justify-around items-center font-Meow tracking-tighter text-3xl z-10"
-            }
-          >
-            <h4 className="cursor-pointer">
-              <a href="#about">About</a>
-            </h4>
-            <h4 className="cursor-pointer">
-              <a href="#contact">Contact</a>
-            </h4>
-            <h4 className="cursor-pointer">
-              <NavLink to="Blog">Blog</NavLink>
-            </h4>
-            <h4 className="cursor-pointer">
-              <a href="#portfolio">Portfolio</a>
-            </h4>
-            <h4 className="cursor-pointer">
-              <a href="#projets">Projets</a>
-            </h4>
-          </div>
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.title}
+              href={link.href}
+              onClick={handleLinkClick}
+              className="text-lg font-medium transition-colors hover:text-cyan-400"
+            >
+              {link.title}
+            </a>
+          ))}
+        </div>
 
-          {!active ? (
-            <IoIosCloseCircleOutline
-              className="cursor-pointer md:hidden z-10 text-3xl color text-purple-500 w-10 rounded-full h-10 absolute right-0"
-              onClick={() => setActive(!active)}
-            />
-          ) : (
-            <RiMenu4Line
-              className="cursor-pointer md:hidden z-10 text-3xl color text-purple-500 w-10 rounded-full h-10"
-              onClick={() => setActive(!active)}
-            />
-          )}
-        </nav>
-      </header>
-    </>
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="z-50">
+            {isMenuOpen ? (
+              <IoIosCloseCircleOutline className="h-8 w-8 text-cyan-400" />
+            ) : (
+              <RiMenu4Line className="h-8 w-8 text-white" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`absolute top-0 left-0 w-full h-screen bg-gray-900/95 md:hidden flex flex-col items-center justify-center transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
+        >
+          {navLinks.map((link) => (
+            <a
+              key={link.title}
+              href={link.href}
+              onClick={handleLinkClick}
+              className="text-3xl font-medium py-4 text-white hover:text-cyan-400 transition-colors"
+            >
+              {link.title}
+            </a>
+          ))}
+        </div>
+      </nav>
+    </header>
   );
 }
 

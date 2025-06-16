@@ -2,58 +2,54 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 function Blog({ donnee }) {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    // Simule un chargement asynchrone
     const fetchData = () => {
       try {
-        setData(donnee)
+        setData(donnee);
       } catch (error) {
-        console.error("Erreur de récupération des données:", error)
+        console.error("Erreur de récupération des données:", error);
       }
-    }
-    fetchData()
-  }, [donnee])
+    };
+    fetchData();
+  }, [donnee]);
 
-  /**
- * Creates a URL slug from a given title by converting it to lowercase, 
- * removing special characters, and replacing spaces with hyphens.
- *
- * @param {string} title - The title to be converted into a slug.
- * @return {string} The URL slug.
- */
   const createSlug = (title) => {
     return title
       .toLowerCase()
-      .replace(/[^\w\s]/g, '') // Supprime les caractères spéciaux
-      .replace(/\s+/g, '-') // Remplace les espaces par des tirets
-  }
+      .replace(/[^\w\s]/g, '')
+      .replace(/\s+/g, '-');
+  };
 
   return (
-    <div className='container mx-auto p-4 h-screen'>
-      <h2 className='text-3xl font-bold mb-8 text-center'>Blog</h2>
-      <ul className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
+    <div className='bg-gray-900 min-h-screen py-20 px-4 md:px-12'>
+      <div className="text-center mb-16">
+        <h2 className="text-4xl font-bold text-cyan-400">Mon Blog</h2>
+        <p className="text-lg text-gray-400 mt-2">Découvrez mes derniers articles et réflexions.</p>
+      </div>
+      <ul className='grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto'>
         {data.map((post) => (
           <li
             key={post.id}
-            className='bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow'
+            className='bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-cyan-400/20'
           >
-            <article className='flex flex-col h-full'>
-              <h3 className='text-xl font-semibold mb-2'>{post.title}</h3>
-              <time className='text-sm text-gray-500 mt-2'>{post.date}</time>
+            <article className='flex flex-col h-full p-6'>
+              <h3 className='text-2xl font-bold text-white mb-3'>{post.title}</h3>
+              <time className='text-sm text-gray-400 mb-4'>{post.date}</time>
+              <div className="flex-grow"></div>
               <Link
                 to={`/blog/${createSlug(post.title)}`}
-                className='mt-4 self-start text-blue-500 hover:underline'
+                className='mt-4 self-start bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300'
               >
-                Lire la suite →
+                Lire la suite
               </Link>
             </article>
           </li>
         ))}
       </ul>
     </div>
-  )
+  );
 }
 
 export default Blog
