@@ -43,13 +43,13 @@ function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 right-8">
+      <div className="absolute bottom-8 right-8 ">
         <div
           className={`bg-cyan-600 hover:bg-cyan-700 transition-all duration-300 rounded-full p-3 cursor-pointer ${click ? 'w-auto' : 'w-16 h-16 flex items-center justify-center'}`}
           onClick={() => setClick(!click)}
         >
           {click ? (
-            <div className="flex gap-4 px-4">
+            <div className="flex gap-4 px-4 transition-all duration-300">
               <a href="https://www.facebook.com/wilsonikeda.koffi.3" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
                 <FaFacebookF size={24} />
               </a>
@@ -70,7 +70,7 @@ function Hero() {
               </a>
             </div>
           ) : (
-            <span className="text-sm font-semibold">Contact</span>
+            <span className="text-sm font-semibold animate-bounce">Contact</span>
           )}
         </div>
       </div>
