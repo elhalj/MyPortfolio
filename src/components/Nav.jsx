@@ -31,7 +31,7 @@ function Nav() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "bg-gray-900/80 backdrop-blur-lg shadow-lg" : "bg-transparent"
+      className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "bg-gray-900/80 backdrop-blur-lg shadow-lg" : "bg-cyan-600/80"
         }`}
     >
       <nav className="container mx-auto flex items-center justify-between p-4 text-white">
@@ -59,7 +59,8 @@ function Nav() {
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="z-50">
             {isMenuOpen ? (
-              <IoIosCloseCircleOutline className="h-8 w-8 text-cyan-400" />
+              // <IoIosCloseCircleOutline className="h-8 w-8 text-cyan-400" />
+              ""
             ) : (
               <RiMenu4Line className="h-8 w-8 text-white" />
             )}
@@ -71,6 +72,10 @@ function Nav() {
           className={`absolute top-0 left-0 w-full h-screen bg-gray-900/95 md:hidden flex flex-col items-center justify-center transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
             }`}
         >
+
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="absolute top-4 right-4">
+            <IoIosCloseCircleOutline className="h-8 w-8 text-cyan-400" />
+          </button>
           {navLinks.map((link) => (
             <a
               key={link.title}
