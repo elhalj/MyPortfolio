@@ -12,7 +12,7 @@ function Hero() {
   return (
     <section className="relative text-white">
       <div
-        className="h-[400px] md:h-[600px] w-full bg-cover bg-center"
+        className="h-[600px] md:h-[600px] w-full bg-cover bg-center"
         style={{
           backgroundImage: `url(${bck})`,
         }}
@@ -45,7 +45,7 @@ function Hero() {
 
       <div className="absolute bottom-8 right-8 ">
         <div
-          className={`bg-cyan-600 hover:bg-cyan-700 transition-all duration-300 rounded-full p-3 cursor-pointer ${click ? 'w-auto' : 'w-16 h-16 flex items-center justify-center'}`}
+          className={`bg-cyan-600 hover:bg-cyan-700 transition-all duration-300 rounded-lg p-3 cursor-pointer ${click ? 'w-auto' : 'w-16 h-16 flex items-center justify-center'}`}
           onClick={() => setClick(!click)}
         >
           {click ? (
