@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
+    <!-- Encodage des caractères -->
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/photo1.jpg" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Viewport pour le responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    
+    <!-- Thème couleur pour les navigateurs mobiles -->
     <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="msapplication-config" content="%PUBLIC_URL%/browserconfig.xml" />
+    
+    <!-- Script pour la couleur du thème -->
     <script>
       (function() {
         var themeColor = '#000000';
@@ -18,16 +25,53 @@
         metaThemeColor.content = themeColor;
       })();
     </script>
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/monlogo.jpg" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/photo1.jpg" />
+    
+    <!-- Favicon et icônes -->
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Balises meta pour le SEO -->
+    <meta name="author" content="wilson ikeda koffi alias elhalj" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    
+    <!-- Balises Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Portfolio - Développeur Full Stack" />
+    
+    <!-- Balises Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@votrepseudo" />
+    
+    <!-- Préchargement des ressources critiques -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+    
+    <!-- Balises de vérification pour les outils de recherche -->
+    <!-- <meta name="google-site-verification" content="VOTRE_CODE_DE_VERIFICATION" /> -->
+    <!-- <meta name="yandex-verification" content="VOTRE_CODE_DE_VERIFICATION" /> -->
+    <!-- <meta name="msvalidate.01" content="VOTRE_CODE_DE_VERIFICATION" /> -->
+    
+    <!-- Balises pour les appareils Apple -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Mon Portfolio" />
+    
+    <!-- Balises pour Microsoft -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    
+    <!-- Balises pour le mode sombre/clair -->
+    <meta name="color-scheme" content="light dark" />
+    
     <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+      Le fichier manifest.json fournit des métadonnées utilisées lorsque votre application web est installée
+      sur un appareil mobile ou un ordinateur de bureau. Voir https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!--

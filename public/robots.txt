@@ -1,3 +1,59 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Dossiers à bloquer
+Disallow: /private/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$
+
+# Fichiers à bloquer
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /yarn.lock
+
+# Paramètres d'URL à ignorer
+Clean-param: ref / 
+Clean-param: source /
+Clean-param: utm_* /
+
+# Sitemap
+Sitemap: https://wilsonikeda.vercel.app/sitemap.xml
+
+# Vitesse de crawl (en secondes)
+Crawl-delay: 10
+
+# Instructions pour les moteurs de recherche spécifiques
+# Googlebot
+User-agent: Googlebot
+Allow: /*.css
+Allow: /*.js
+
+# Bingbot
+User-agent: bingbot
+Crawl-delay: 5
+
+# Yandex
+User-agent: Yandex
+Crawl-delay: 5
+
+# Baidu
+User-agent: Baiduspider
+Disallow: /
+
+# Blocage des robots indésirables
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Fin du fichier
