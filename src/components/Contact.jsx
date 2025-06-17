@@ -38,7 +38,7 @@ function Contact() {
       })
       .catch((err) => {
         console.log('FAILED...', err);
-        alert('Failed to send message. Please try again later.');
+        alert('Failed to send message. Rendez-vous au debut de la page pour mecrire sur mes differents reseaux.');
       });
   };
 
