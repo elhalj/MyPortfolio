@@ -2,7 +2,6 @@ import React from 'react';
 import certImg from '../assets/cert.png';
 import cvImg from '../assets/cv.png';
 import certificatPDF from '../assets/path/to/certificat.pdf';
-import cvPDF from '../assets/path/to/cv.pdf';
 
 const portfolioItems = [
   {
@@ -13,7 +12,7 @@ const portfolioItems = [
   {
     title: 'CV',
     image: cvImg,
-    link: cvPDF,
+    link: "https://mon-cv-one-phi.vercel.app",
   },
 ];
 
