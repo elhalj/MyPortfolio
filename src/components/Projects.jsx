@@ -3,19 +3,12 @@ import ecommerce from "../assets/path/to/ecommerce.webp";
 import moonchat from "../assets/path/to/moonchat_1.webp";
 import blog from "../assets/path/to/Blog.webp";
 import seguikro from "../assets/path/to/seguikro.webp";
+import civisRecens from "../assets/path/to/civisRecens.png";
+import tasks from "../assets/path/to/tasks.png";
 import { FaGithub } from "react-icons/fa";
 
 const projects = [
-  {
-    title: "Site E-commerce",
-    description:
-      "Une plateforme de commerce électronique complète avec un design moderne.",
-    image: ecommerce,
-    link: "https://fresh-fashon.onrender.com",
-    version: "0.0.1",
-    icon: FaGithub,
-    codeSource: "https://github.com/elhalj/fresh-fashon",
-  },
+
   {
     title: "MoonChat",
     description:
@@ -45,6 +38,36 @@ const projects = [
     version: "0.0.2",
     icon: FaGithub,
     codeSource: "https://github.com/elhalj/seguikro",
+  },
+  {
+    title: "Site E-commerce",
+    description:
+      "Une plateforme de commerce électronique complète avec un design moderne.",
+    image: ecommerce,
+    link: "#",
+    version: "0.0.1",
+    icon: FaGithub,
+    codeSource: "https://github.com/elhalj/fresh-fashon",
+  },
+  {
+    title: "CivisRecens",
+    description:
+      "Une plateforme pour l'auto-recencement des civils, Les services adminisatrative et Informations medical.",
+    image: civisRecens,
+    link: "https://civi-recens.vercel.app",
+    version: "0.0.1",
+    icon: FaGithub,
+    codeSource: "https://github.com/elhalj/CiviRecens",
+  },
+  {
+    title: "Task",
+    description:
+      "Une plateforme pour l'ajoute de tache, chat entre utilisateurs, envoie de projet.",
+    image: tasks,
+    link: "#",
+    version: "0.0.1",
+    icon: FaGithub,
+    codeSource: "https://github.com/elhalj/Tasks_api",
   },
 ];
 
