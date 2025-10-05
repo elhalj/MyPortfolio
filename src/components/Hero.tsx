@@ -56,7 +56,7 @@ function Hero() {
 
       <div className="absolute bottom-8 right-8 ">
         <div
-          className={`bg-cyan-600 hover:bg-cyan-700 transition-all duration-300 rounded-lg p-3 cursor-pointer ${click ? "w-auto" : "w-16 h-16 flex items-center justify-center"}`}
+          className={`bg-orange-600 hover:bg-orange-700 transition-all duration-300 rounded-lg p-3 cursor-pointer ${click ? "w-auto transition-all duration-300" : "w-16 h-16 flex items-center justify-center"}`}
           onClick={() => setClick(!click)}
         >
           {click ? (
@@ -115,7 +115,7 @@ function Hero() {
               </a>
             </div>
           ) : (
-            <span className="text-sm font-semibold animate-bounce">
+            <span className="text-sm font-bold animate-bounce">
               Contact
             </span>
           )}

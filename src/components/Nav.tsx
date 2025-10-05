@@ -1,14 +1,18 @@
+'use client'
 import React, { useEffect, useState } from "react";
 import { RiMenu4Line } from "react-icons/ri";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import Link from "next/link";
+import { BsJournalAlbum } from "react-icons/bs";
+import { BsBook } from "react-icons/bs";
+import { FcContacts } from "react-icons/fc";
 
 const navLinks = [
-  { title: "About", href: "/#about" },
-  { title: "Portfolio", href: "/#portfolio" },
-  { title: "Projets", href: "/#projects" },
-  { title: "Contact", href: "/#contact" },
-  { title: "Blog", href: "/blog" },
+  { title: "About", href: "/#about", icon: <RiMenu4Line /> },
+  { title: "Portfolio", href: "/portfolio", icon: <BsJournalAlbum /> },
+  { title: "Projets", href: "/#projects", icon: <BsBook /> },
+  { title: "Contact", href: "/#contact", icon: <FcContacts color="white" className="text-white"/> },
+  { title: "Blog", href: "/blog", icon: <RiMenu4Line /> },
 ];
 
 function Nav() {
@@ -51,9 +55,9 @@ function Nav() {
               key={link.title}
               href={link.href}
               onClick={handleLinkClick}
-              className="text-lg font-medium transition-colors hover:text-cyan-400"
+              className=" flex items-center gap-2 text-lg font-medium transition-colors hover:text-cyan-400"
             >
-              {link.title}
+              <span>{link.icon}</span><span>{link.title}</span>
             </a>
           ))}
         </div>
@@ -88,9 +92,9 @@ function Nav() {
               key={link.title}
               href={link.href}
               onClick={handleLinkClick}
-              className="text-3xl font-medium py-4 text-white hover:text-cyan-400 transition-colors"
+              className="flex items-center gap-2 text-3xl font-medium py-4 text-white hover:text-cyan-400 transition-colors"
             >
-              {link.title}
+              <span>{link.icon}</span><span>{link.title}</span>
             </a>
           ))}
         </div>
