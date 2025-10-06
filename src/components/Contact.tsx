@@ -2,8 +2,13 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 
+interface Form {
+  name: string;
+  email: string;
+  message: string;
+}
 function Contact() {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<Form>({
     name: "",
     email: "",
     message: "",
