@@ -10,7 +10,7 @@ import {
 import { MdOutlineMail } from "react-icons/md";
 import { IoSchool } from "react-icons/io5";
 import { LuMapPin } from "react-icons/lu";
-import logo from "../../public/assets/photo3.jpg";
+import logo from "../../public/assets/photo3.webp";
 import bck from "../../public/assets/bck.jpg";
 import Image from "next/image";
 
@@ -44,7 +44,7 @@ function Hero() {
           <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 mt-4 text-lg">
             <div className="flex items-center gap-2">
               <IoSchool className="text-cyan-400" />
-              <span>Software Developer</span>
+              <span>Developer web/mobile | JS</span>
             </div>
             <div className="flex items-center gap-2">
               <LuMapPin className="text-cyan-400" />
