@@ -4,7 +4,9 @@ export default async function BlogPostPage({params} : {params: Promise<{slug: st
    const {slug} = await params;
     return (
         <>
-        <h1>{slug}</h1>
+            <div className="flex h-screen items-center justify-center">
+                <h1>{slug}</h1>
+            </div>
         </>
     )
 }

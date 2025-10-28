@@ -4,7 +4,7 @@ import moonchat from "../../public/assets/path/to/moonchat_1.webp";
 import blog from "../../public/assets/path/to/Blog.webp";
 import seguikro from "../../public/assets/path/to/seguikro.webp";
 import civisRecens from "../../public/assets/path/to/civisRecens.png";
-import tasks from "../../public/assets/path/to/tasks.png";
+import tasks from "../../public/assets/path/to/tasks.webp";
 import { FaGithub } from "react-icons/fa";
 import Image, { StaticImageData } from "next/image";
 import type { IconType } from "react-icons";
@@ -13,6 +13,7 @@ type Project = {
   title: string;
   description: string;
   image: StaticImageData;
+  technologies?: string[];
   link: string;
   version: string;
   icon: IconType;
@@ -25,6 +26,7 @@ const projects: Project[] = [
     description:
       "Une application de chat en temps réel pour une communication instantanée.",
     image: moonchat,
+    technologies: ["React", "Node.js", "Socket.io"],
     link: "https://moonchat-fn47.onrender.com",
     version: "0.0.3",
     icon: FaGithub,
@@ -35,6 +37,7 @@ const projects: Project[] = [
     description:
       "Un blog personnel simple et rapide, construit avec des technologies modernes.",
     image: blog,
+    technologies: ["Tailwind CSS", "Markdown", "Vercel", "TypeScript", "React"],
     link: "https://posts-seven-red.vercel.app",
     version: "0.0.8",
     icon: FaGithub,
@@ -45,6 +48,7 @@ const projects: Project[] = [
     description:
       "cotization plateforme frontend and more financial contribution.",
     image: seguikro,
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite", "Node.js", "MongoDB"],
     link: "https://seguikro.vercel.app/",
     version: "0.0.2",
     icon: FaGithub,
@@ -55,6 +59,7 @@ const projects: Project[] = [
     description:
       "Une plateforme de commerce électronique complète avec un design moderne.",
     image: ecommerce,
+    technologies: ["React", "CSS3", "Node.js", "MongoDB"],
     link: "#",
     version: "0.0.1",
     icon: FaGithub,
@@ -65,6 +70,7 @@ const projects: Project[] = [
     description:
       "Une plateforme pour l'auto-recencement des civils, Les services adminisatrative et Informations medical.",
     image: civisRecens,
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     link: "https://civi-recens.vercel.app",
     version: "0.0.1",
     icon: FaGithub,
@@ -75,7 +81,8 @@ const projects: Project[] = [
     description:
       "Une plateforme pour l'ajoute de tache, chat entre utilisateurs, envoie de projet.",
     image: tasks,
-    link: "#",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite", "Node.js", "MongoDB"],
+    link: "https://colab-flow.netlify.app/login",
     version: "0.0.1",
     icon: FaGithub,
     codeSource: "https://github.com/elhalj/Tasks_api",
@@ -86,6 +93,7 @@ function ProjectCard({
   title,
   description,
   image,
+  technologies,
   link,
   version,
   icon: Icon,
@@ -104,6 +112,13 @@ function ProjectCard({
       <div className="p-6">
         <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
         <p className="text-gray-400 mb-4">{description}</p>
+        <ul className="flex flex-wrap gap-2 mb-5">
+          {technologies?.map((tech) => (
+            <li key={tech} className="text-gray-400 bg-blue-200/10 p-1 rounded mb-1">
+              #{tech}
+            </li>
+          ))}
+        </ul>
 
         <div className="flex justify-between p-2">
           <a
@@ -149,12 +164,13 @@ function Projects() {
               title={project.title}
               description={project.description}
               image={project.image}
+              technologies={project.technologies}
               link={project.link}
               version={project.version}
               icon={project.icon}
               codeSource={project.codeSource}
             />
-          ))}
+          )).reverse()}
         </div>
       </section>
     </>
