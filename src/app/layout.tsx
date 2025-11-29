@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { ConvexClientProvider } from "@/context/ConvexClientProvider";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -84,9 +85,11 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`antialiased`} suppressHydrationWarning>
-        <Header/>
-        <main>{children}</main>
-        <Footer />
+        <ConvexClientProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </ConvexClientProvider>
       </body>
     </html>
   );
