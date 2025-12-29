@@ -3,6 +3,7 @@
 import { ConvexReactClient } from "convex/react"
 import { ReactNode, useEffect, useState } from "react"
 import { ConvexProvider } from "convex/react"
+import Loader from "@/components/Loader";
 
 export const ConvexClientProvider = ({ children }: { children: ReactNode }) => {
     const [convex, setConvex] = useState<ConvexReactClient | null>(null);
@@ -20,7 +21,11 @@ export const ConvexClientProvider = ({ children }: { children: ReactNode }) => {
     }, []);
 
     if (!convex) {
-        return <div>Loading...</div>;
+        return (
+            <div className="flex h-screen w-full items-center justify-center">
+                <Loader />
+            </div>
+        )
     }
 
     return (
