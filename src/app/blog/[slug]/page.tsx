@@ -6,7 +6,7 @@ import { api } from "../../../../convex/_generated/api";
 import Loader from "@/components/Loader";
 import React, { useState } from "react";
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
      const { slug } = (React as any).use(params)
     ? (React as any).use(params)
     : { slug: undefined }; // fallback si React.use non disponible
