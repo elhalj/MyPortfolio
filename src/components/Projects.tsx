@@ -48,7 +48,14 @@ const projects: Project[] = [
     description:
       "cotization plateforme frontend and more financial contribution.",
     image: seguikro,
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite", "Node.js", "MongoDB"],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "Node.js",
+      "MongoDB",
+    ],
     link: "https://seguikro.vercel.app/",
     version: "0.0.2",
     icon: FaGithub,
@@ -81,7 +88,14 @@ const projects: Project[] = [
     description:
       "Une plateforme pour l'ajoute de tache, chat entre utilisateurs, envoie de projet.",
     image: tasks,
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite", "Node.js", "MongoDB"],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "Node.js",
+      "MongoDB",
+    ],
     link: "https://colab-flow.netlify.app/login",
     version: "0.0.1",
     icon: FaGithub,
@@ -114,7 +128,10 @@ function ProjectCard({
         <p className="text-gray-400 mb-4">{description}</p>
         <ul className="flex flex-wrap gap-2 mb-5">
           {technologies?.map((tech) => (
-            <li key={tech} className="text-gray-400 bg-blue-200/10 p-1 rounded mb-1">
+            <li
+              key={tech}
+              className="text-gray-400 bg-blue-200/10 p-1 rounded mb-1"
+            >
               #{tech}
             </li>
           ))}
@@ -158,19 +175,21 @@ function Projects() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.title}
-              title={project.title}
-              description={project.description}
-              image={project.image}
-              technologies={project.technologies}
-              link={project.link}
-              version={project.version}
-              icon={project.icon}
-              codeSource={project.codeSource}
-            />
-          )).reverse()}
+          {projects
+            .map((project) => (
+              <ProjectCard
+                key={project.title}
+                title={project.title}
+                description={project.description}
+                image={project.image}
+                technologies={project.technologies}
+                link={project.link}
+                version={project.version}
+                icon={project.icon}
+                codeSource={project.codeSource}
+              />
+            ))
+            .reverse()}
         </div>
       </section>
     </>

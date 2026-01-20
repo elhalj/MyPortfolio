@@ -115,9 +115,7 @@ function Hero() {
               </a>
             </div>
           ) : (
-            <span className="text-sm font-bold animate-bounce">
-              Contact
-            </span>
+            <span className="text-sm font-bold animate-bounce">Contact</span>
           )}
         </div>
       </div>

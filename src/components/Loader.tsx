@@ -1,6 +1,6 @@
-import './Loader.css'
+import "./Loader.css";
 
-const DOT_COUNT = 5
+const DOT_COUNT = 5;
 
 export default function Loader() {
   return (
@@ -14,5 +14,5 @@ export default function Loader() {
         <span key={index} className="loader-dot" aria-hidden="true" />
       ))}
     </div>
-  )
+  );
 }

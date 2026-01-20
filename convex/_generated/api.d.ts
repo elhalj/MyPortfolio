@@ -9,6 +9,7 @@
  */
 
 import type * as blog from "../blog.js";
+import type * as myConnexion from "../myConnexion.js";
 import type * as tasks from "../tasks.js";
 
 import type {
@@ -19,6 +20,7 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   blog: typeof blog;
+  myConnexion: typeof myConnexion;
   tasks: typeof tasks;
 }>;
 
