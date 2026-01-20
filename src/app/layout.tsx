@@ -15,7 +15,8 @@ export const metadata: Metadata = {
     default: "Konan Wilson Ikeda Koffi - Développeur Web Full Stack",
     template: "%s | Konan Wilson Ikeda Koffi",
   },
-  description: "Développeur Web Full Stack spécialisé en Next.js, React et TypeScript. Création d'applications web modernes, performantes et optimisées pour le SEO. Découvrez mon portfolio et mes projets.",
+  description:
+    "Développeur Web Full Stack spécialisé en Next.js, React et TypeScript. Création d'applications web modernes, performantes et optimisées pour le SEO. Découvrez mon portfolio et mes projets.",
   keywords: [
     "Développeur web",
     "Full Stack",
@@ -53,7 +54,8 @@ export const metadata: Metadata = {
     url: "https://koffi.dev",
     siteName: "Konan Wilson Ikeda Koffi - Portfolio",
     title: "Konan Wilson Ikeda Koffi - Développeur Web Full Stack",
-    description: "Développeur Web Full Stack spécialisé en Next.js, React et TypeScript. Création d'applications web modernes, performantes et optimisées pour le SEO.",
+    description:
+      "Développeur Web Full Stack spécialisé en Next.js, React et TypeScript. Création d'applications web modernes, performantes et optimisées pour le SEO.",
     images: [
       {
         url: "https://koffi.dev/images/og-image.png",
@@ -67,7 +69,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Konan Wilson Ikeda Koffi - Développeur Web Full Stack",
-    description: "Développeur Web Full Stack spécialisé en Next.js, React et TypeScript.",
+    description:
+      "Développeur Web Full Stack spécialisé en Next.js, React et TypeScript.",
     images: ["https://koffi.dev/images/og-image.png"],
     creator: "@konanwilson",
   },
