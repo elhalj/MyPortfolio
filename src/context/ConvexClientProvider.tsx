@@ -7,7 +7,7 @@ import Loader from "@/components/Loader";
 
 export const ConvexClientProvider = ({ children }: { children: ReactNode }) => {
   const [convex, setConvex] = useState<ConvexReactClient | null>(null);
-  const [error, setError] = useState<string | null>();
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     // This ensures we're in the browser before initializing Convex

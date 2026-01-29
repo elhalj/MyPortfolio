@@ -4,9 +4,11 @@ import { ConnexionPageProps } from "@/types/alltypes";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useConnexion } from "@/hooks/useConnexion";
+import { useRouter } from "next/navigation";
 
 export default function ConnexionPageClient() {
   const { login, loading, error, isConnected } = useConnexion();
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -19,9 +21,9 @@ export default function ConnexionPageClient() {
       await login(data.pseudo, data.email, data.password);
       reset();
       // Optionnel : rediriger après connexion réussie
-      window.location.href = "/admin/dashboard";
+      router.push("/admin/dashboard");
     } catch (err) {
-      console.error("Login error:", err);
+      console.error("Login error:", (err as Error).message);
     }
   };
 
