@@ -18,7 +18,11 @@ const navLinks = [
     icon: <FcContacts color="white" className="text-white" />,
   },
   { title: "Blog", href: "/blog", icon: <RiMenu4Line /> },
-  { title: "Connexion", href: "/admin/dashboard/connexion", icon: <MdDashboard /> },
+  {
+    title: "Connexion",
+    href: "/admin/dashboard/connexion",
+    icon: <MdDashboard />,
+  },
 ];
 
 function Nav() {
