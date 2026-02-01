@@ -52,9 +52,9 @@ function Nav() {
       }`}
     >
       <nav className="container mx-auto flex items-center justify-between p-4 text-white">
-        <h1 className="text-3xl font-bold tracking-wider">
+        <h1 className="text-3xl font-[cormorant] tracking-wider">
           <Link href="/" className="hover:text-cyan-400 transition-colors">
-            Elhalj.
+            Wilson&Dev
           </Link>
         </h1>
 
@@ -65,7 +65,7 @@ function Nav() {
               key={link.title}
               href={link.href}
               onClick={handleLinkClick}
-              className=" flex items-center gap-2 text-lg font-medium transition-colors hover:text-cyan-400"
+              className=" flex items-center gap-2 text-lg font-[cormorant] uppercase transition-colors hover:text-cyan-400"
             >
               <span>{link.icon}</span>
               <span>{link.title}</span>
@@ -103,7 +103,7 @@ function Nav() {
               key={link.title}
               href={link.href}
               onClick={handleLinkClick}
-              className="flex items-center gap-2 text-3xl font-medium py-4 text-white hover:text-cyan-400 transition-colors"
+              className="flex items-center gap-2 text-3xl font-[cormorant] uppercase py-4 text-white hover:text-cyan-400 transition-colors"
             >
               <span>{link.icon}</span>
               <span>{link.title}</span>

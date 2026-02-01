@@ -5,7 +5,7 @@ export const metadata = {
 };
 
 import React from "react";
-import ConnexionPageClient from "./ConnexionPage";
+import ConnexionPageClient from "@/app/admin/dashboard/ui/ConnexionPage";
 
 export default function ConnexionPage() {
   return <ConnexionPageClient />;

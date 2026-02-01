@@ -66,7 +66,7 @@ function SkillCard({ name, icon }: Skill) {
   return (
     <div className="bg-gray-800 p-6 rounded-lg flex flex-col items-center justify-center gap-4 transform transition-transform duration-300 hover:scale-110 hover:shadow-cyan-400/20 shadow-lg">
       {icon}
-      <p className="text-lg font-semibold text-gray-300">{name}</p>
+      <p className="text-lg font-[cormorant] text-gray-300">{name}</p>
     </div>
   );
 }
@@ -75,10 +75,10 @@ function Skills() {
   return (
     <section id="skills" className="py-20 px-4 md:px-12 bg-gray-900">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-cyan-400">
+        <h2 className="text-4xl font-[cormorant] text-cyan-400">
           Compétences Techniques
         </h2>
-        <p className="text-lg text-gray-400 mt-2">
+        <p className="text-lg font-[cormorant] text-gray-400 mt-2">
           Les technologies avec lesquelles j'aime travailler.
         </p>
       </div>

@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function BlogPageClient() {
   const { blog } = useBlog();
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-gray-900 via-gray-800 to-gray-900 text-white p-6">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-gray-900 via-gray-800 to-gray-900 text-white p-6 font-[cormorant]">
       {blog &&
         (Array.isArray(blog) ? (
           <div className="grid grid-cols-1 md:grid-cols-2 max-w-4xl w-full mx-auto gap-6">
@@ -18,15 +18,19 @@ export default function BlogPageClient() {
                 className="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="flex flex-col md:flex-row gap-6 items-start">
-                  <Image
-                    src={post.image ?? post.thumbnail ?? ""}
-                    alt={post.title ?? `Post ${idx + 1}`}
-                    className="w-full md:w-1/3 h-48 md:h-40 object-cover rounded-md bg-gray-700 shrink-0"
-                  />
+                  {post.image && (
+                    <Image
+                      src={post.image}
+                      alt={post.title ?? `Post ${idx + 1}`}
+                      className="w-full md:w-1/3 h-48 md:h-40 object-cover rounded-md bg-gray-700 shrink-0"
+                      width={100}
+                      height={100}
+                    />
+                  )}
                   <div className="flex-1">
                     <h2
                       id={`post-${idx}-title`}
-                      className="text-2xl font-semibold mb-2"
+                      className="text-2xl font-[cormorant] mb-2"
                     >
                       {post.title}
                     </h2>
@@ -34,7 +38,7 @@ export default function BlogPageClient() {
 
                     <div className="flex flex-wrap gap-2 mb-4">
                       {post.etat && (
-                        <span className="text-xs text-white px-2 py-1 rounded-full bg-emerald-600">
+                        <span className="text-xs text-white px-2 py-1 rounded-full bg-emerald-600 font[cormorant]">
                           {post.etat}
                         </span>
                       )}
@@ -53,7 +57,7 @@ export default function BlogPageClient() {
                   <div className="mt-4">
                     <Link
                       href={`/blog/${post._id ?? post.slug ?? idx}`}
-                      className="inline-block text-white px-3 py-1 rounded-full bg-blue-600 hover:bg-blue-500 transition-colors"
+                      className="inline-block text-white px-3 py-1 rounded-full bg-blue-600 hover:bg-blue-500 transition-colors font-[cormorant]"
                     >
                       Read
                     </Link>

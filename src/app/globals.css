@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap");
 @import "tailwindcss";
 
 @theme inline {
@@ -12,4 +13,8 @@
 
 body {
   font-family: var(--font-sans);
+}
+
+.cormorant {
+  font-family: "Cormorant", serif;
 }
