@@ -1,13 +1,10 @@
 import React from "react";
-
-import Contact from "./Contact";
-
-import ScrollAnimation from "./ScrollAnimation";
-import About from "./About";
-import Skills from "./Skills";
-import Projects from "./Projects";
-import Hero from "./Hero";
-
+import Hero from "@/components/sections/Hero";
+import ScrollAnimation from "@/components/ui/ScrollAnimation";
+import About from "@/components/sections/About";
+import Skills from "@/components/sections/Skills";
+import Projects from "@/components/sections/Projects";
+import Contact from "@/components/sections/Contact";
 function Main() {
   return (
     <main className="bg-gray-900 text-white min-h-screen">

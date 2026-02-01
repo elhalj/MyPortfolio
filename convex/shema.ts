@@ -20,7 +20,12 @@ export default defineSchema({
   // Table blog (déjà utilisée dans votre code)
   blog: defineTable({
     title: v.string(),
+    description: v.string(),
     content: v.string(),
+    lecture: v.string(),
+    date: v.string(),
+    etat: v.string(),
+    image: v.string(),
     author: v.string(),
     createdAt: v.string(),
     updatedAt: v.string(),

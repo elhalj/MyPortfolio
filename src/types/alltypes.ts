@@ -5,3 +5,14 @@ export interface ConnexionPageProps {
   email: string;
   password: string;
 }
+
+export interface BlogFormPageProps {
+  _id?: string;
+  title: string;
+  description: string;
+  content: string;
+  lecture: string;
+  etat: string;
+  image: string;
+  author: string;
+}

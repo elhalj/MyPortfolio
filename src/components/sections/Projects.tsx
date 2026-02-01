@@ -1,18 +1,12 @@
 import React from "react";
-import ecommerce from "../../public/assets/path/to/ecommerce.webp";
-import moonchat from "../../public/assets/path/to/moonchat_1.webp";
-import blog from "../../public/assets/path/to/Blog.webp";
-import seguikro from "../../public/assets/path/to/seguikro.webp";
-import civisRecens from "../../public/assets/path/to/civisRecens.png";
-import tasks from "../../public/assets/path/to/tasks.webp";
 import { FaGithub } from "react-icons/fa";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import type { IconType } from "react-icons";
 
 type Project = {
   title: string;
   description: string;
-  image: StaticImageData;
+  image: string;
   technologies?: string[];
   link: string;
   version: string;
@@ -25,7 +19,7 @@ const projects: Project[] = [
     title: "MoonChat",
     description:
       "Une application de chat en temps réel pour une communication instantanée.",
-    image: moonchat,
+    image: "/assets/path/to/moonchat_1.webp",
     technologies: ["React", "Node.js", "Socket.io"],
     link: "https://moonchat-fn47.onrender.com",
     version: "0.0.3",
@@ -36,7 +30,7 @@ const projects: Project[] = [
     title: "Blog Statique",
     description:
       "Un blog personnel simple et rapide, construit avec des technologies modernes.",
-    image: blog,
+    image: "/assets/path/to/Blog.webp",
     technologies: ["Tailwind CSS", "Markdown", "Vercel", "TypeScript", "React"],
     link: "https://posts-seven-red.vercel.app",
     version: "0.0.8",
@@ -47,7 +41,7 @@ const projects: Project[] = [
     title: "Financial contribution",
     description:
       "cotization plateforme frontend and more financial contribution.",
-    image: seguikro,
+    image: "/assets/path/to/seguikro.webp",
     technologies: [
       "React",
       "TypeScript",
@@ -65,7 +59,7 @@ const projects: Project[] = [
     title: "Site E-commerce",
     description:
       "Une plateforme de commerce électronique complète avec un design moderne.",
-    image: ecommerce,
+    image: "/assets/path/to/ecommerce.webp",
     technologies: ["React", "CSS3", "Node.js", "MongoDB"],
     link: "#",
     version: "0.0.1",
@@ -76,7 +70,7 @@ const projects: Project[] = [
     title: "CivisRecens",
     description:
       "Une plateforme pour l'auto-recencement des civils, Les services adminisatrative et Informations medical.",
-    image: civisRecens,
+    image: "/assets/path/to/civisRecens.png",
     technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     link: "https://civi-recens.vercel.app",
     version: "0.0.1",
@@ -87,7 +81,7 @@ const projects: Project[] = [
     title: "Task",
     description:
       "Une plateforme pour l'ajoute de tache, chat entre utilisateurs, envoie de projet.",
-    image: tasks,
+    image: "/assets/path/to/tasks.webp",
     technologies: [
       "React",
       "TypeScript",
@@ -124,7 +118,7 @@ function ProjectCard({
         priority={false}
       />
       <div className="p-6">
-        <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
+        <h3 className="text-2xl font-[cormorant] text-white mb-2">{title}</h3>
         <p className="text-gray-400 mb-4">{description}</p>
         <ul className="flex flex-wrap gap-2 mb-5">
           {technologies?.map((tech) => (
@@ -169,8 +163,10 @@ function Projects() {
     <>
       <section id="projects" className="py-20 px-4 md:px-12 bg-gray-900">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-cyan-400">Mes Projets</h2>
-          <p className="text-lg text-gray-400 mt-2">
+          <h2 className="text-4xl font-[cormorant] text-cyan-400">
+            Mes Projets
+          </h2>
+          <p className="text-lg font-[cormorant] text-gray-400 mt-2">
             Quelques-uns de mes travaux récents.
           </p>
         </div>

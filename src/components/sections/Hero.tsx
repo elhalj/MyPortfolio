@@ -10,8 +10,6 @@ import {
 import { MdOutlineMail } from "react-icons/md";
 import { IoSchool } from "react-icons/io5";
 import { LuMapPin } from "react-icons/lu";
-import logo from "../../public/assets/photo3.webp";
-import bck from "../../public/assets/bck.jpg";
 import Image from "next/image";
 
 function Hero() {
@@ -21,7 +19,7 @@ function Hero() {
       <div
         className="h-[600px] md:h-[600px] w-full bg-cover bg-center"
         style={{
-          backgroundImage: `url(${bck.src})`,
+          backgroundImage: "url(/assets/bck.jpg)",
         }}
       >
         {click && (
@@ -31,7 +29,7 @@ function Hero() {
 
       <div className="absolute top-1/2 left-1/2 md:left-1/4 transform -translate-x-1/2 -translate-y-1/2 md:-translate-y-1/4 flex flex-col items-center text-center md:text-left">
         <Image
-          src={logo}
+          src="/assets/photo3.webp"
           alt="logo"
           className="h-[150px] w-[150px] md:h-[250px] md:w-[250px] rounded-full object-cover border-4 border-gray-700 shadow-lg"
           width={250}

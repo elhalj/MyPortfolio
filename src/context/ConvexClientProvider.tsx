@@ -3,7 +3,7 @@
 import { ConvexReactClient } from "convex/react";
 import { ReactNode, useEffect, useState } from "react";
 import { ConvexProvider } from "convex/react";
-import Loader from "@/components/Loader";
+import Loader from "@/components/ui/Loader";
 
 export const ConvexClientProvider = ({ children }: { children: ReactNode }) => {
   const [convex, setConvex] = useState<ConvexReactClient | null>(null);

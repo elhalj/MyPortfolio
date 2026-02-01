@@ -9,6 +9,7 @@
  */
 
 import type * as blog from "../blog.js";
+import type * as createBlog from "../createBlog.js";
 import type * as initAdmin from "../initAdmin.js";
 import type * as myConnexion from "../myConnexion.js";
 import type * as shema from "../shema.js";
@@ -22,6 +23,7 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   blog: typeof blog;
+  createBlog: typeof createBlog;
   initAdmin: typeof initAdmin;
   myConnexion: typeof myConnexion;
   shema: typeof shema;
