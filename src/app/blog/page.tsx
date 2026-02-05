@@ -6,11 +6,15 @@ export const metadata = {
 
 import ScrollAnimation from "@/components/ui/ScrollAnimation";
 import BlogPageClient from "./BlogPageClient";
+import { Suspense } from "react";
+import Loader from "@/components/ui/Loader";
 
 export default function BlogPage() {
   return (
     <ScrollAnimation animation="fade-left" className="delay-500">
-      <BlogPageClient />
+      <Suspense fallback={<Loader />}>
+        <BlogPageClient />
+      </Suspense>
     </ScrollAnimation>
   );
 }

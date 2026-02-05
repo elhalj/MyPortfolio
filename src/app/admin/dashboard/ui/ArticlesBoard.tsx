@@ -23,7 +23,7 @@ export default function ArticlesBoard() {
         </span>
       </header>
 
-      <div className="mt-8 overflow-hidden rounded-2xl border border-slate-100">
+      <div className="mt-8 overflow-x-scroll rounded-2xl border border-slate-100">
         <table className="min-w-full divide-y divide-slate-100 text-sm">
           <thead className="bg-slate-50 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
             <tr>
