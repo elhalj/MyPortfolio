@@ -5,14 +5,8 @@ import { fetchAllBlogPosts, fetchPostBySlug } from "@/lib/blogServer";
 import { markdownToHtml } from "@/lib/markdownToHtml";
 import { SITE_URL } from "@/lib/constants";
 
-type BlogPostPageParams = { slug: string };
-
 type BlogPostPageProps = {
-  params: BlogPostPageParams;
-};
-
-type BlogPostGenerateMetadataProps = {
-  params: Promise<BlogPostPageParams>;
+  params: Promise<{ slug: string }>;
 };
 
 const FALLBACK_DESCRIPTION =
@@ -21,7 +15,9 @@ const FALLBACK_DESCRIPTION =
 const htmlToPlainText = (html: string) =>
   html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 
-export async function generateStaticParams(): Promise<BlogPostPageParams[]> {
+export async function generateStaticParams(): Promise<
+  BlogPostPageProps["params"] extends Promise<infer U> ? U[] : never
+> {
   const posts = await fetchAllBlogPosts();
   return posts
     .map((post) => ({ slug: String(post.slug ?? post._id ?? "") }))
@@ -30,7 +26,7 @@ export async function generateStaticParams(): Promise<BlogPostPageParams[]> {
 
 export async function generateMetadata({
   params,
-}: BlogPostGenerateMetadataProps): Promise<Metadata> {
+}: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = await fetchPostBySlug(slug);
   if (!post) {
@@ -79,7 +75,7 @@ export async function generateMetadata({
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const initialPost = await fetchPostBySlug(slug);
 
   if (!initialPost) {
