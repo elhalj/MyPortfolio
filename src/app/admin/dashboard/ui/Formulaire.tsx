@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { BlogFormPageProps } from "@/types/alltypes";
 import { useBlogForm } from "@/hooks/useBlogForm";
 import ScrollAnimation from "@/components/ui/ScrollAnimation";
+import MarkdownRenderer from "@/components/blog/MarkdownRenderer";
 
 const defaultValues: BlogFormPageProps = {
   title: "",
@@ -25,7 +26,10 @@ export default function Formulaire() {
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
   } = useForm<BlogFormPageProps>({ defaultValues });
+
+  const contentValue = watch("content");
 
   const onSubmit: SubmitHandler<BlogFormPageProps> = async (data) => {
     setSuccessMessage(null);
@@ -156,19 +160,41 @@ export default function Formulaire() {
             )}
           </div>
 
-          <div>
-            <label className="text-sm font-medium text-slate-700">
-              Contenu *
-            </label>
-            <textarea
-              rows={6}
-              className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 text-slate-900 focus:border-cyan-500 focus:bg-white focus:outline-none"
-              {...register("content", { required: "Le contenu est requis" })}
-            />
-            {errors.content && (
-              <p className="mt-1 text-sm text-rose-500">
-                {errors.content.message}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <label className="text-sm font-medium text-slate-700">
+                Contenu *
+              </label>
+              <p className="text-xs text-slate-400">
+                Markdown supporté (titres, listes, code, blockquotes)
               </p>
+            </div>
+            <div className="grid gap-4 lg:grid-cols-2">
+              <textarea
+                rows={10}
+                className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 font-mono text-sm text-slate-900 focus:border-cyan-500 focus:bg-white focus:outline-none"
+                placeholder="# Titre\n\nDécrivez votre article en Markdown..."
+                spellCheck={false}
+                {...register("content", { required: "Le contenu est requis" })}
+              />
+
+              <div className="rounded-xl border border-slate-200 bg-slate-900 text-white">
+                <div className="border-b border-white/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-white/70">
+                  Aperçu Markdown
+                </div>
+                <div className="max-h-[360px] overflow-auto px-4 py-4">
+                  {contentValue?.trim() ? (
+                    <MarkdownRenderer content={contentValue} />
+                  ) : (
+                    <p className="text-sm text-white/70">
+                      Commencez à écrire en Markdown pour voir l'aperçu.
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+            {errors.content && (
+              <p className="text-sm text-rose-500">{errors.content.message}</p>
             )}
           </div>
 

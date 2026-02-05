@@ -3,12 +3,14 @@
 import React from "react";
 import { useBlog } from "@/hooks/useBlog";
 import { FiExternalLink } from "react-icons/fi";
+import ScrollAnimation from "@/components/ui/ScrollAnimation";
 
 export default function ArticlesBoard() {
   const { blog } = useBlog();
 
   return (
-    <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+    <ScrollAnimation animation="fade-up" className="space-y-6 transition-all duration-500 ease-out delay-100">
+      <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
       <header className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
@@ -70,5 +72,7 @@ export default function ArticlesBoard() {
         </table>
       </div>
     </section>
+    </ScrollAnimation>
+    
   );
 }

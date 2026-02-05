@@ -16,3 +16,10 @@ export interface BlogFormPageProps {
   image: string;
   author: string;
 }
+
+export interface BlogDocument extends BlogFormPageProps {
+  slug?: string;
+  date?: string;
+  createdAt?: string;
+  updatedAt?: string;
+}

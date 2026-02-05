@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "highlight.js/styles/atom-one-dark.css";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import { ConvexClientProvider } from "@/context/ConvexClientProvider";
