@@ -5,8 +5,14 @@ import { fetchAllBlogPosts, fetchPostBySlug } from "@/lib/blogServer";
 import { markdownToHtml } from "@/lib/markdownToHtml";
 import { SITE_URL } from "@/lib/constants";
 
+type BlogPostPageParams = { slug: string };
+
 type BlogPostPageProps = {
-  params: { slug: string };
+  params: BlogPostPageParams;
+};
+
+type BlogPostGenerateMetadataProps = {
+  params: Promise<BlogPostPageParams>;
 };
 
 const FALLBACK_DESCRIPTION =
@@ -15,7 +21,7 @@ const FALLBACK_DESCRIPTION =
 const htmlToPlainText = (html: string) =>
   html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<BlogPostPageParams[]> {
   const posts = await fetchAllBlogPosts();
   return posts
     .map((post) => ({ slug: String(post.slug ?? post._id ?? "") }))
@@ -24,8 +30,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: BlogPostPageProps): Promise<Metadata> {
-  const post = await fetchPostBySlug(params.slug);
+}: BlogPostGenerateMetadataProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await fetchPostBySlug(slug);
   if (!post) {
     return {
       title: "Article introuvable",
