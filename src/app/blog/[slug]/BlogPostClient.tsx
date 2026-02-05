@@ -3,32 +3,37 @@
 import Link from "next/link";
 import { useQuery } from "convex/react";
 import { api } from "../../../../convex/_generated/api";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Image from "next/image";
 import ScrollAnimation from "@/components/ui/ScrollAnimation";
 import Loader from "@/components/ui/Loader";
+import MarkdownRenderer from "@/components/blog/MarkdownRenderer";
+import type { BlogDocument } from "@/types/alltypes";
 
 interface BlogPostClientProps {
   slug: string;
+  initialPost?: BlogDocument | null;
 }
 
-export default function BlogPostClient({ slug }: BlogPostClientProps) {
+export default function BlogPostClient({ slug, initialPost }: BlogPostClientProps) {
   const blog = useQuery(api.blog.get);
   const [copied, setCopied] = useState(false);
 
-  if (!blog) {
-    return (
-      <div className="flex h-screen items-center justify-center text-white">
-        <Loader />
-      </div>
-    );
-  }
-
-  const post = Array.isArray(blog)
-    ? blog.find((p) => String(p._id) === slug || String(p.slug) === slug)
-    : null;
+  const post = useMemo(() => {
+    if (Array.isArray(blog)) {
+      return blog.find((p) => String(p._id) === slug || String(p.slug) === slug) ?? null;
+    }
+    return initialPost ?? null;
+  }, [blog, slug, initialPost]);
 
   if (!post) {
+    if (!blog && initialPost) {
+      return (
+        <div className="flex h-screen items-center justify-center text-white">
+          <Loader />
+        </div>
+      );
+    }
     return (
       <div className="flex h-screen flex-col items-center justify-center text-white">
         <h2 className="mb-4 text-2xl font-bold">Article introuvable</h2>
@@ -98,13 +103,7 @@ export default function BlogPostClient({ slug }: BlogPostClientProps) {
             )}
           </div>
 
-          <div className="prose prose-invert max-w-none text-gray-200">
-            {(post.content ?? "")
-              .split("\n")
-              .map((line: string, i: number) =>
-                line.trim() ? <p key={i}>{line}</p> : <br key={i} />,
-              )}
-          </div>
+          <MarkdownRenderer content={post.content ?? ""} />
 
           <div className="mt-6 flex items-center gap-3">
             <Link
