@@ -64,7 +64,7 @@ export default function BlogPageClient() {
                   </div>
                 </div>
               </article>
-            ))}
+            )).reverse()}
           </div>
         ) : (
           <div className="max-w-4xl w-full mx-auto">

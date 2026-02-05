@@ -25,9 +25,7 @@ export default function BlogPostClient({ slug }: BlogPostClientProps) {
   }
 
   const post = Array.isArray(blog)
-    ? blog.find(
-        (p) => String(p._id) === slug || String(p.slug) === slug,
-      )
+    ? blog.find((p) => String(p._id) === slug || String(p.slug) === slug)
     : null;
 
   if (!post) {

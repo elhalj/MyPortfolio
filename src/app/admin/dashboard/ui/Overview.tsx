@@ -1,31 +1,30 @@
+import { useBlog } from "@/hooks/useBlog";
 import React from "react";
 
-const quickStats = [
-  { label: "Articles publiés", value: 18, trend: "+3 cette semaine" },
-  { label: "Brouillons", value: 6, trend: "2 prêts à publier" },
-  { label: "Lecteurs", value: 1240, trend: "+12% vs mois dernier" },
-  { label: "Temps de lecture moyen", value: "4 min", trend: "Stable" },
-];
-
-const recentArticles = [
-  {
-    title: "Comprendre Convex en 10 min",
-    status: "Publié",
-    date: "01 Fév. 2026",
-  },
-  {
-    title: "Design system pour startups",
-    status: "Brouillon",
-    date: "29 Jan. 2026",
-  },
-  {
-    title: "React Server Actions : retour d'expérience",
-    status: "Publié",
-    date: "27 Jan. 2026",
-  },
-];
-
 export default function Overview() {
+  const { blog } = useBlog();
+  const articlePublié = blog?.find((f) => f.etat === "publié");
+  const brouillon = blog?.find((f) => f.etat === "brouillon");
+  const blogTrend = articlePublié?.length || 0;
+  const lecteurs = 1240;
+
+  const quickStats = [
+    {
+      label: "Articles publiés",
+      value: articlePublié?.length || 0,
+      trend: `+${blogTrend} cette semaine`,
+    },
+    {
+      label: "Brouillons",
+      value: brouillon?.length || 0,
+      trend: `${brouillon?.length || 0} prêts à publier`,
+    },
+    { label: "Lecteurs", value: lecteurs, trend: "+12% vs mois dernier" },
+    { label: "Temps de lecture moyen", value: "4 min", trend: "Stable" },
+  ];
+
+  const recentArticles = blog?.slice(-3);
+
   return (
     <div className="space-y-8">
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
@@ -61,7 +60,7 @@ export default function Overview() {
         </header>
 
         <div className="mt-6 divide-y divide-slate-100">
-          {recentArticles.map((article) => (
+          {recentArticles?.map((article) => (
             <article
               key={article.title}
               className="flex flex-wrap items-center justify-between gap-3 py-4"
@@ -74,15 +73,15 @@ export default function Overview() {
               </div>
               <span
                 className={`rounded-full px-3 py-1 text-xs font-medium ${
-                  article.status === "Publié"
+                  article.etat === "publié"
                     ? "bg-emerald-50 text-emerald-600"
                     : "bg-amber-50 text-amber-600"
                 }`}
               >
-                {article.status}
+                {article.etat}
               </span>
             </article>
-          ))}
+          )).reverse()}
         </div>
       </section>
     </div>

@@ -52,7 +52,7 @@ function Nav() {
       }`}
     >
       <nav className="container mx-auto flex items-center justify-between p-4 text-white">
-        <h1 className="text-3xl font-[cormorant] tracking-wider">
+        <h1 className="text-3xl font-[cormorant]">
           <Link href="/" className="hover:text-cyan-400 transition-colors">
             Wilson&Dev
           </Link>
