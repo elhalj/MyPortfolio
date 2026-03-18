@@ -1,4 +1,4 @@
-import { cvData, CvPdfDownload } from "@/utils/cv";
+import { cvData, CvPdfDownload } from "@/shared/utils/cv";
 
 export const metadata = {
   title: "Portfolio - Mon CV et Projets",

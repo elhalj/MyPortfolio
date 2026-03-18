@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useMutation } from "convex/react";
-import { api } from "../../convex/_generated/api";
-import type { BlogFormPageProps } from "@/types/alltypes";
+import { api } from "../../../../convex/_generated/api";
+import type { BlogFormPageProps } from "@/shared/types/alltypes";
 
 interface BlogFormStatus {
   status: "idle" | "loading" | "success" | "error";

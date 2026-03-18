@@ -1,9 +1,9 @@
 "use client";
 
-import { ConnexionPageProps } from "@/types/alltypes";
+import { ConnexionPageProps } from "@/shared/types/alltypes";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useConnexion } from "@/hooks/useConnexion";
+import { useConnexion } from "@/features/auth/hooks/useConnexion";
 import { useRouter } from "next/navigation";
 
 export default function ConnexionPageClient() {

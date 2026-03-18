@@ -7,8 +7,8 @@ import React, { useMemo, useState } from "react";
 import Image from "next/image";
 import ScrollAnimation from "@/components/ui/ScrollAnimation";
 import Loader from "@/components/ui/Loader";
-import MarkdownRenderer from "@/components/blog/MarkdownRenderer";
-import type { BlogDocument } from "@/types/alltypes";
+import MarkdownRenderer from "@/components/features/blog/MarkdownRenderer";
+import type { BlogDocument } from "@/shared/types/alltypes";
 
 interface BlogPostClientProps {
   slug: string;

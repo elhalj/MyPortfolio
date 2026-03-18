@@ -1,11 +1,11 @@
 import { beforeEach, describe, expect, it, jest } from "@jest/globals";
 import BlogPostPage from "../page";
 import BlogPostClient from "../BlogPostClient";
-import { fetchPostBySlug } from "@/lib/blogServer";
+import { fetchPostBySlug } from "@/features/blog/api/blogServer";
 import { notFound } from "next/navigation";
-import type { BlogDocument } from "@/types/alltypes";
+import type { BlogDocument } from "@/shared/types/alltypes";
 
-jest.mock("@/lib/blogServer", () => ({
+jest.mock("@/features/blog/api/blogServer", () => ({
   fetchPostBySlug: jest.fn(),
   fetchAllBlogPosts: jest.fn(),
 }));

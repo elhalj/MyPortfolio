@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useBlog } from "@/hooks/useBlog";
+import { useBlog } from "@/features/blog/hooks/useBlog";
 import { FiExternalLink } from "react-icons/fi";
 import ScrollAnimation from "@/components/ui/ScrollAnimation";
 
