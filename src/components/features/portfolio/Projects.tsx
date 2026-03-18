@@ -95,6 +95,16 @@ const projects: Project[] = [
     icon: FaGithub,
     codeSource: "https://github.com/elhalj/Tasks_api",
   },
+  {
+    title: "Gbairai",
+    description: "Un plateforme de journalisme citoyenne des informations vrai, analysés et verifiés",
+    image: "/assets/path/to/Gbairai.png",
+    technologies: ["Vite", "React", "TypeScript", "Tailwind CSS", "Supabase", "React query"],
+    link: "https://gbairais.netlify.app",
+    version: "1.3",
+    icon: FaGithub,
+    codeSource: "https;//github.com/elhalj/Gbairai"
+  }
 ];
 
 function ProjectCard({

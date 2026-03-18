@@ -1,5 +1,5 @@
 import ScrollAnimation from "@/components/ui/ScrollAnimation";
-import { useBlog } from "@/hooks/useBlog";
+import { useBlog } from "@/features/blog/hooks/useBlog";
 import React from "react";
 
 export default function Overview() {

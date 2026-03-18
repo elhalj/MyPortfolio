@@ -1,6 +1,6 @@
-import type { BlogDocument } from "@/types/alltypes";
-import { getConvexClient } from "@/lib/convexServer";
-import { api } from "../../convex/_generated/api";
+import type { BlogDocument } from "@/shared/types/alltypes";
+import { getConvexClient } from "@/services/convex/convexServer";
+import { api } from "../../../../convex/_generated/api";
 
 export async function fetchAllBlogPosts(): Promise<BlogDocument[]> {
   const convex = getConvexClient();

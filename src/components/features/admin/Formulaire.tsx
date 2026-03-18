@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { BlogFormPageProps } from "@/types/alltypes";
-import { useBlogForm } from "@/hooks/useBlogForm";
+import { BlogFormPageProps } from "@/shared/types/alltypes";
+import { useBlogForm } from "@/features/blog/hooks/useBlogForm";
 import ScrollAnimation from "@/components/ui/ScrollAnimation";
-import MarkdownRenderer from "@/components/blog/MarkdownRenderer";
+import MarkdownRenderer from "@/components/features/blog/MarkdownRenderer";
 
 const defaultValues: BlogFormPageProps = {
   title: "",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useConnexion } from "@/hooks/useConnexion";
+import { useConnexion } from "@/features/auth/hooks/useConnexion";
 import React from "react";
 import { CiLogout } from "react-icons/ci";
 import { FaGreaterThan, FaLessThan } from "react-icons/fa";

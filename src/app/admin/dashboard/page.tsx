@@ -1,5 +1,5 @@
 import React from "react";
-import DashbordLAyout from "./ui/DashbordLAyout";
+import DashbordLAyout from "@/components/features/admin/DashbordLAyout";
 import DashboardPage from "./DashboardPage";
 
 export default function Page() {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useBlog } from "@/hooks/useBlog";
+import { useBlog } from "@/features/blog/hooks/useBlog";
 import Image from "next/image";
 import Link from "next/link";
 

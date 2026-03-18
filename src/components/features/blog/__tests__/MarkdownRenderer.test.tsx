@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { describe, it } from "@jest/globals";
-import MarkdownRenderer from "@/components/blog/MarkdownRenderer";
+import MarkdownRenderer from "@/components/features/blog/MarkdownRenderer";
 
 describe("MarkdownRenderer", () => {
   const sampleMarkdown = [

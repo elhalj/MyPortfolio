@@ -8,7 +8,7 @@ import Overview from "./Overview";
 import Team from "./Team";
 import Settings from "./Settings";
 import ArticlesBoard from "./ArticlesBoard";
-import { useConnexion } from "@/hooks/useConnexion";
+import { useConnexion } from "@/features/auth/hooks/useConnexion";
 import { useRouter } from "next/navigation";
 
 type DashbordLAyoutProps = {

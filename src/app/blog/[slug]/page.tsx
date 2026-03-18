@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostClient from "./BlogPostClient";
-import { fetchAllBlogPosts, fetchPostBySlug } from "@/lib/blogServer";
-import { markdownToHtml } from "@/lib/markdownToHtml";
-import { SITE_URL } from "@/lib/constants";
+import { fetchAllBlogPosts, fetchPostBySlug } from "@/features/blog/api/blogServer";
+import { markdownToHtml } from "@/services/markdown/markdownToHtml";
+import { SITE_URL } from "@/shared/constants/constants";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
