@@ -9,12 +9,12 @@ import { FcContacts } from "react-icons/fc";
 import { MdDashboard } from "react-icons/md";
 
 const navLinks = [
-  { title: "About", href: "/#about", icon: <RiMenu4Line /> },
+  { title: "About", href: "/about", icon: <RiMenu4Line /> },
   { title: "Portfolio", href: "/portfolio", icon: <BsJournalAlbum /> },
-  { title: "Projets", href: "/#projects", icon: <BsBook /> },
+  { title: "Projets", href: "/projects", icon: <BsBook /> },
   {
     title: "Contact",
-    href: "/#contact",
+    href: "/contact",
     icon: <FcContacts color="white" className="text-white" />,
   },
   { title: "Blog", href: "/blog", icon: <RiMenu4Line /> },
@@ -45,13 +45,13 @@ function Nav() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-[40%] left-0 z-50 w-2xs transition-all duration-300 ${
         isScrolled
           ? "bg-gray-900/80 backdrop-blur-lg shadow-lg"
           : "bg-cyan-600/80"
       }`}
     >
-      <nav className="container mx-auto flex items-center justify-between p-4 text-white">
+      <nav className="container mx-auto flex flex-col items-center justify-between p-4 text-white">
         <h1 className="text-3xl font-[cormorant]">
           <Link href="/" className="hover:text-cyan-400 transition-colors">
             Wilson&Dev
@@ -59,9 +59,9 @@ function Nav() {
         </h1>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex md:flex-col items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.title}
               href={link.href}
               onClick={handleLinkClick}
@@ -69,7 +69,7 @@ function Nav() {
             >
               <span>{link.icon}</span>
               <span>{link.title}</span>
-            </a>
+            </Link>
           ))}
         </div>
 
