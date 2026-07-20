@@ -2,6 +2,7 @@ import React from "react";
 import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
 import type { IconType } from "react-icons";
+import ScrollAnimation from "@/components/ui/ScrollAnimation";
 
 type Project = {
     title: string;
@@ -161,33 +162,40 @@ function ProjectCard({
 function Projects() {
     return (
         <>
-            <section id="projects" className="py-20 px-4 md:px-12 bg-gray-900">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl font-[cormorant] text-cyan-400">
-                        Mes Projets
-                    </h2>
-                    <p className="text-lg font-[cormorant] text-gray-400 mt-2">
-                        Quelques-uns de mes travaux récents.
-                    </p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                    {projects
-                        .map((project) => (
-                            <ProjectCard
-                                key={project.title}
-                                title={project.title}
-                                description={project.description}
-                                image={project.image}
-                                technologies={project.technologies}
-                                link={project.link}
-                                version={project.version}
-                                icon={project.icon}
-                                codeSource={project.codeSource}
-                            />
-                        ))
-                        .reverse()}
-                </div>
-            </section>
+            <ScrollAnimation animation="fade-left">
+                <section
+                    id="projects"
+                    className="py-20 px-4 md:px-12 bg-gray-900"
+                >
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl font-[cormorant] text-cyan-400">
+                            Mes Projets
+                        </h2>
+                        <p className="text-lg font-[cormorant] text-gray-400 mt-2">
+                            Quelques-uns de mes travaux récents.
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                        {projects
+                            .map((project) => (
+                                <ScrollAnimation animation="fade-up">
+                                    <ProjectCard
+                                    key={project.title}
+                                    title={project.title}
+                                    description={project.description}
+                                    image={project.image}
+                                    technologies={project.technologies}
+                                    link={project.link}
+                                    version={project.version}
+                                    icon={project.icon}
+                                    codeSource={project.codeSource}
+                                />
+                                </ScrollAnimation>
+                            ))
+                            .reverse()}
+                    </div>
+                </section>
+            </ScrollAnimation>
         </>
     );
 }

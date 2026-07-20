@@ -1,71 +1,80 @@
 import React from "react";
 import about from "../../public/assets/photo2.webp";
 import Image from "next/image";
+import ScrollAnimation from "@/components/ui/ScrollAnimation";
 
 function About() {
-  return (
-    <section id="about" className="py-20 px-4 md:px-12">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-[cormorant] text-cyan-400">
-          À Propos de Moi
-        </h2>
-        <p className="text-lg text-gray-400 mt-2">
-          Mon parcours, mes compétences et ma passion pour le développement.
-        </p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
-          <h3 className="text-3xl font-[cormorant] text-white mb-4">
-            Concepteur Créatif & Développeur Moderne
-          </h3>
-          <p className="text-gray-300 mb-6">
-            Développeur Full-Stack MERN et Mobile React Native passionné par la
-            technologie et l'innovation. Je suis spécialisé dans la création
-            d'applications web performantes et d'applications mobiles
-            cross-platform. Mon objectif est de transformer des idées en
-            solutions numériques scalables, intuitives et impactantes.
-          </p>
-          <ul className="space-y-4 text-gray-300">
-            <li>
-              <span className="font-[cormorant] text-cyan-400 underline underline-offset-4">
-                Ce que je fais :
-              </span>{" "}
-              Développement Web et Mobile, conception d'API robustes, et
-              création d'interfaces utilisateur dynamiques.
-            </li>
-            <li>
-              <span className="font-[cormorant] text-cyan-400 underline underline-offset-4">
-                Mon approche :
-              </span>{" "}
-              Un code propre, maintenable et testable. J'aime collaborer pour
-              aligner la technique avec les besoins métiers.
-            </li>
-            <li>
-              <span className="font-[cormorant] text-cyan-400 underline underline-offset-4">
-                Pourquoi moi ?
-              </span>{" "}
-              Curiosité sans limites, débrouillardise et une véritable passion
-              pour la création d'expériences utilisateur exceptionnelles.
-            </li>
-          </ul>
-          <p className="mt-6 text-gray-400">
-            En dehors du code, j'aime jouer aux jeux vidéos, explorer l'IA/ML,
-            et préparer le café parfait ☕. Prêt à collaborer ? Discutons de
-            votre projet !
-          </p>
-        </div>
-        <div className="flex justify-center">
-          <Image
-            src={"/assets/photo2.webp"}
-            alt="about"
-            className="h-auto w-full max-w-md rounded-lg shadow-2xl object-cover"
-            width={800}
-            height={800}
-          />
-        </div>
-      </div>
-    </section>
-  );
+    return (
+        <ScrollAnimation animation="fade-left">
+            <section id="about" className="py-20 px-4 md:px-12">
+                <div className="text-center mb-12">
+                    <h2 className="text-4xl font-[cormorant] text-cyan-400">
+                        À Propos de Moi
+                    </h2>
+                    <p className="text-lg text-gray-400 mt-2">
+                        Mon parcours, mes compétences et ma passion pour le
+                        développement.
+                    </p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
+                        <h3 className="text-3xl font-[cormorant] text-white mb-4">
+                            Concepteur Créatif & Développeur Moderne
+                        </h3>
+                        <p className="text-gray-300 mb-6">
+                            Développeur Full-Stack MERN et Mobile React Native
+                            passionné par la technologie et l'innovation. Je
+                            suis spécialisé dans la création d'applications web
+                            performantes et d'applications mobiles
+                            cross-platform. Mon objectif est de transformer des
+                            idées en solutions numériques scalables, intuitives
+                            et impactantes.
+                        </p>
+                        <ul className="space-y-4 text-gray-300">
+                            <li>
+                                <span className="font-[cormorant] text-cyan-400 underline underline-offset-4">
+                                    Ce que je fais :
+                                </span>{" "}
+                                Développement Web et Mobile, conception d'API
+                                robustes, et création d'interfaces utilisateur
+                                dynamiques.
+                            </li>
+                            <li>
+                                <span className="font-[cormorant] text-cyan-400 underline underline-offset-4">
+                                    Mon approche :
+                                </span>{" "}
+                                Un code propre, maintenable et testable. J'aime
+                                collaborer pour aligner la technique avec les
+                                besoins métiers.
+                            </li>
+                            <li>
+                                <span className="font-[cormorant] text-cyan-400 underline underline-offset-4">
+                                    Pourquoi moi ?
+                                </span>{" "}
+                                Curiosité sans limites, débrouillardise et une
+                                véritable passion pour la création d'expériences
+                                utilisateur exceptionnelles.
+                            </li>
+                        </ul>
+                        <p className="mt-6 text-gray-400">
+                            En dehors du code, j'aime jouer aux jeux vidéos,
+                            explorer l'IA/ML, et préparer le café parfait ☕.
+                            Prêt à collaborer ? Discutons de votre projet !
+                        </p>
+                    </div>
+                    <div className="flex justify-center">
+                        <Image
+                            src={"/assets/photo2.webp"}
+                            alt="about"
+                            className="h-auto w-full max-w-md rounded-lg shadow-2xl object-cover"
+                            width={800}
+                            height={800}
+                        />
+                    </div>
+                </div>
+            </section>
+        </ScrollAnimation>
+    );
 }
 
 export default About;

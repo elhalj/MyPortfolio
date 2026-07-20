@@ -13,7 +13,7 @@ const ScrollAnimation = ({
 }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    rootMargin: "-50px 0px",
+    rootMargin: "-100px 0px",
   });
 
   const animations: Record<string, string> = {
@@ -27,7 +27,7 @@ const ScrollAnimation = ({
     <div
       ref={ref}
       className={`${className} ${inView ? "opacity-100 translate-y-0 scale-100" : (animations[animation] ?? "")} 
-        transition-all duration-500 ease-out`}
+        transition-all duration-1000 ease-out`}
     >
       {children}
     </div>

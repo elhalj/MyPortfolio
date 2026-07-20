@@ -13,33 +13,65 @@ import { LuMapPin } from "react-icons/lu";
 import Image from "next/image";
 
 function Hero() {
-  const [click, setClick] = useState(false);
+  const [showSocials, setShowSocials] = useState(true);
+
+  const socialLinks = [
+    {
+      href: "https://www.facebook.com/wilsonikeda.koffi.3",
+      icon: <FaFacebookF size={24} />,
+      label: "Facebook",
+    },
+    {
+      href: "https://www.instagram.com/elhalj_officiel",
+      icon: <FaInstagram size={24} />,
+      label: "Instagram",
+    },
+    {
+      href: "https://www.linkedin.com/in/wilson-ikeda-koffi-ehalj",
+      icon: <FaLinkedinIn size={24} />,
+      label: "LinkedIn",
+    },
+    {
+      href: "https://wa.me/+2250769988211",
+      icon: <FaWhatsapp size={24} />,
+      label: "WhatsApp",
+    },
+    {
+      href: "mailto:wilsonikedakoffi7@gmail.com",
+      icon: <MdOutlineMail size={24} />,
+      label: "Email",
+    },
+    {
+      href: "https://github.com/elhalj",
+      icon: <FaGithub size={24} />,
+      label: "GitHub",
+    },
+  ];
+
   return (
-    <section className="relative text-white">
+    <section className="relative min-h-screen text-white">
       <div
-        className="h-[600px] md:h-[600px] w-full bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: "url(/assets/bck.jpg)",
         }}
       >
-        {click && (
-          <div className="absolute inset-0 bg-black opacity-50">{}</div>
-        )}
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
-      <div className="absolute top-1/2 left-1/2 md:left-1/4 transform -translate-x-1/2 -translate-y-1/2 md:-translate-y-1/4 flex flex-col items-center text-center md:text-left">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-20">
         <Image
           src="/assets/photo3.webp"
-          alt="logo"
-          className="h-[150px] w-[150px] md:h-[250px] md:w-[250px] rounded-full object-cover border-4 border-gray-700 shadow-lg"
+          alt="Konan Wilson Ikeda Koffi"
+          className="h-[150px] w-[150px] md:h-[250px] md:w-[250px] rounded-full object-cover border-4 border-cyan-400 shadow-2xl"
           width={250}
           height={250}
         />
-        <div className="mt-6">
+        <div className="mt-8 text-center">
           <h1 className="text-3xl md:text-5xl font-bold uppercase tracking-wider">
             Konan Wilson Ikeda Koffi
           </h1>
-          <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 mt-4 text-lg">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-4 text-lg">
             <div className="flex items-center gap-2">
               <IoSchool className="text-cyan-400" />
               <span>Developer web/mobile | JS</span>
@@ -52,70 +84,38 @@ function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 right-8 ">
-        <div
-          className={`bg-orange-600 hover:bg-orange-700 transition-all duration-300 rounded-lg p-3 cursor-pointer ${click ? "w-auto transition-all duration-300" : "w-16 h-16 flex items-center justify-center"}`}
-          onClick={() => setClick(!click)}
+      <div className="fixed bottom-8 right-8 z-20 transition-transform duration-1000 hover:scale-105 hover:translate-y-0">
+        <button
+          onClick={() => setShowSocials(!showSocials)}
+          className="bg-cyan-600 hover:bg-cyan-700 transition-all duration-700 rounded-full p-4 shadow-lg hover:shadow-xl hover:scale-105 hover:translate-y-0"
+          aria-label="Toggle social links"
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              setShowSocials(!showSocials);
+            }
+          }}
         >
-          {click ? (
-            <div className="flex gap-4 px-4 transition-all duration-300">
-              <a
-                href="https://www.facebook.com/wilsonikeda.koffi.3"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-gray-300"
-              >
-                <FaFacebookF size={24} />
-                {}
-              </a>
-              <a
-                href="https://www.instagram.com/elhalj_officiel"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-gray-300"
-              >
-                <FaInstagram size={24} />
-                {}
-              </a>
-              <a
-                href="https://www.linkedin.com/in/wilson-ikeda-koffi-ehalj"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-gray-300"
-              >
-                <FaLinkedinIn size={24} />
-                {}
-              </a>
-              <a
-                href="https://wa.me/+2250504464486"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-gray-300"
-              >
-                <FaWhatsapp size={24} />
-                {}
-              </a>
-              <a
-                href="mailto:wilsonikedakoffi7@gmail.com"
-                className="hover:text-gray-300"
-              >
-                <MdOutlineMail size={24} />
-                {}
-              </a>
-              <a
-                href="https://github.com/elhalj"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-gray-300"
-              >
-                <FaGithub size={24} />
-                {}
-              </a>
+          {showSocials ? (
+            <div className="flex  gap-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="hover:text-cyan-300 transition-all duration-100"
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
           ) : (
-            <span className="text-sm font-bold animate-bounce">Contact</span>
+            <span className="text-sm font-bold">Contact</span>
           )}
-        </div>
+        </button>
       </div>
     </section>
   );
