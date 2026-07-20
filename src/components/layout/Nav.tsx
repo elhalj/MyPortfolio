@@ -9,12 +9,12 @@ import { FcContacts } from "react-icons/fc";
 import { MdDashboard } from "react-icons/md";
 
 const navLinks = [
-  { title: "About", href: "/about", icon: <RiMenu4Line /> },
+  { title: "About", href: "/#about", icon: <RiMenu4Line /> },
   { title: "Portfolio", href: "/portfolio", icon: <BsJournalAlbum /> },
-  { title: "Projets", href: "/projects", icon: <BsBook /> },
+  { title: "Projets", href: "/#projects", icon: <BsBook /> },
   {
     title: "Contact",
-    href: "/contact",
+    href: "/#contact",
     icon: <FcContacts color="white" className="text-white" />,
   },
   { title: "Blog", href: "/blog", icon: <RiMenu4Line /> },
@@ -45,13 +45,13 @@ function Nav() {
 
   return (
     <header
-      className={`sticky top-[40%] left-0 z-50 w-2xs transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-gray-900/80 backdrop-blur-lg shadow-lg"
-          : "bg-cyan-600/80"
+          ? "bg-gray-900/90 backdrop-blur-lg shadow-lg"
+          : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto flex flex-col items-center justify-between p-4 text-white">
+      <nav className="container mx-auto flex items-center justify-between p-4 text-white">
         <h1 className="text-3xl font-[cormorant]">
           <Link href="/" className="hover:text-cyan-400 transition-colors">
             Wilson&Dev
@@ -59,13 +59,13 @@ function Nav() {
         </h1>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex md:flex-col items-center gap-8">
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.title}
               href={link.href}
               onClick={handleLinkClick}
-              className=" flex items-center gap-2 text-lg font-[cormorant] uppercase transition-colors hover:text-cyan-400"
+              className="flex items-center gap-2 text-lg font-[cormorant] uppercase transition-colors hover:text-cyan-400"
             >
               <span>{link.icon}</span>
               <span>{link.title}</span>
@@ -77,8 +77,7 @@ function Nav() {
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="z-50">
             {isMenuOpen ? (
-              // <IoIosCloseCircleOutline className="h-8 w-8 text-cyan-400" />
-              ""
+              <IoIosCloseCircleOutline className="h-8 w-8 text-cyan-400" />
             ) : (
               <RiMenu4Line className="h-8 w-8 text-white" />
             )}
@@ -87,7 +86,7 @@ function Nav() {
 
         {/* Mobile Menu */}
         <div
-          className={`absolute top-0 left-0 w-full h-screen bg-gray-900/95 md:hidden flex flex-col items-center justify-center transition-transform duration-300 ease-in-out ${
+          className={`fixed top-0 left-0 w-full h-screen bg-gray-900/95 md:hidden flex flex-col items-center justify-center transition-transform duration-300 ease-in-out ${
             isMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
@@ -96,10 +95,9 @@ function Nav() {
             className="absolute top-4 right-4"
           >
             <IoIosCloseCircleOutline className="h-8 w-8 text-cyan-400" />
-            {}
           </button>
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.title}
               href={link.href}
               onClick={handleLinkClick}
@@ -107,7 +105,7 @@ function Nav() {
             >
               <span>{link.icon}</span>
               <span>{link.title}</span>
-            </a>
+            </Link>
           ))}
         </div>
       </nav>
