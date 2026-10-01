@@ -1,37 +1,36 @@
-import React from "react";
-import { LuFileSpreadsheet } from "react-icons/lu";
-
 const VueEnsemble = () => {
   return (
-    <div>
-      <div className="flex items-center gap-4 px-4 md:px-8 py-4 bg-gray-800 uppercase border-y border-gray-700 text-white">
-        <LuFileSpreadsheet />
-        <h1>vue d'ensemble</h1>
-      </div>
-      <div className="p-4 md:px-32 uppercase font-bold grid grid-cols-1 md:grid-cols-2 items-center text-center gap-4">
-        <div className="relative flex justify-around items-center gap-4 bg-gray-800 p-6 hover:scale-105 hover:translate-y-0 transition-transform duration-300 text-gray-300">
-          <h1 className="text-7xl text-cyan-400">2</h1>
-          <p>ans d'experience professionnel</p>
-          <h1 className="text-9xl text-gray-600 absolute right-0 opacity-30">
+    <section
+      aria-label="Quelques chiffres"
+      className="border-b border-white/10 bg-[#080d13]"
+    >
+      <dl className="mx-auto grid max-w-7xl grid-cols-3 divide-x divide-white/10 px-3 py-8 md:px-8 md:py-10">
+        <div className="flex flex-col items-center gap-1 px-2 text-center">
+          <dt className="order-2 max-w-36 text-[9px] font-medium uppercase leading-tight text-[#aab7bd] sm:text-[10px]">
+            Ans d'expérience professionnelle
+          </dt>
+          <dd className="font-mono text-3xl font-bold leading-none text-[#88eaf2] md:text-4xl">
             2
-          </h1>
+          </dd>
         </div>
-        <div className="relative flex justify-around items-center gap-4 bg-gray-800 p-6 hover:scale-105 hover:translate-y-0 transition-transform duration-300 text-gray-300">
-          <h1 className="text-7xl text-cyan-400">1</h1>
-          <p>an d'enseignement post-secondaire</p>
-          <h1 className="text-9xl text-gray-600 absolute right-0 opacity-30">
+        <div className="flex flex-col items-center gap-1 px-2 text-center">
+          <dt className="order-2 max-w-36 text-[9px] font-medium uppercase leading-tight text-[#aab7bd] sm:text-[10px]">
+            Année d'études post-secondaires
+          </dt>
+          <dd className="font-mono text-3xl font-bold leading-none text-[#88eaf2] md:text-4xl">
             1
-          </h1>
+          </dd>
         </div>
-        <div className="relative flex justify-around items-center gap-4 bg-gray-800 p-6 hover:scale-105 hover:translate-y-0 transition-transform duration-300 text-gray-300">
-          <h1 className="text-7xl text-cyan-400">1</h1>
-          <p>certification</p>
-          <h1 className="text-9xl text-gray-600 absolute right-0 opacity-30">
+        <div className="flex flex-col items-center gap-1 px-2 text-center">
+          <dt className="order-2 max-w-36 text-[9px] font-medium uppercase leading-tight text-[#aab7bd] sm:text-[10px]">
+            Certification
+          </dt>
+          <dd className="font-mono text-3xl font-bold leading-none text-[#88eaf2] md:text-4xl">
             1
-          </h1>
+          </dd>
         </div>
-      </div>
-    </div>
+      </dl>
+    </section>
   );
 };
 

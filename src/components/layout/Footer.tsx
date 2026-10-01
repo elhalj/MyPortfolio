@@ -1,5 +1,5 @@
-import React from "react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { MdOutlineMail } from "react-icons/md";
 
 const socialLinks = [
   {
@@ -13,17 +13,23 @@ const socialLinks = [
     url: "https://www.linkedin.com/in/wilson-ikeda-koffi-ehalj", // Remplacez par votre URL
   },
   {
-    name: "Twitter",
-    icon: FaTwitter,
-    url: "https://twitter.com/your-handle", // Remplacez par votre URL
+    name: "Email",
+    icon: MdOutlineMail,
+    url: "mailto:wilsonikedakoffi7@gmail.com",
   },
 ];
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-8">
-      <div className="container mx-auto px-4 flex flex-col items-center">
-        <div className="flex space-x-6 mb-4">
+    <footer className="border-t border-white/10 bg-[#080d10] text-white">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-5 py-7 sm:flex-row md:px-8">
+        <a href="/" className="font-mono text-sm font-bold text-[#27d3e5]">
+          KOFFI.DEV
+        </a>
+        <p className="font-mono text-[10px] text-[#7f8d95]">
+          © {new Date().getFullYear()} Konan Wilson Ikeda Koffi
+        </p>
+        <div className="flex items-center gap-5">
           {socialLinks.map((link) => (
             <a
               key={link.name}
@@ -31,15 +37,13 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.name}
-              className="text-gray-400 hover:text-cyan-400 transition-colors duration-300"
+              className="flex items-center gap-1.5 text-[11px] text-[#9eabb2] transition-colors hover:text-[#27d3e5]"
             >
-              <link.icon className="h-7 w-7" />
+              <link.icon aria-hidden="true" className="h-4 w-4" />
+              <span>{link.name}</span>
             </a>
           ))}
         </div>
-        <p className="text-gray-500 text-sm">
-          &copy; {new Date().getFullYear()} Elhalj. Tous droits réservés.
-        </p>
       </div>
     </footer>
   );

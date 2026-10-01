@@ -1,41 +1,24 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { RiMenu4Line } from "react-icons/ri";
-import { IoIosCloseCircleOutline } from "react-icons/io";
 import Link from "next/link";
-import { BsJournalAlbum } from "react-icons/bs";
-import { BsBook } from "react-icons/bs";
-import { FcContacts } from "react-icons/fc";
-import { MdDashboard } from "react-icons/md";
+import { useEffect, useState } from "react";
+import { LuCodeXml, LuMenu, LuX } from "react-icons/lu";
 
 const navLinks = [
-  { title: "About", href: "/#about", icon: <RiMenu4Line /> },
-  { title: "Portfolio", href: "/portfolio", icon: <BsJournalAlbum /> },
-  { title: "Projets", href: "/#projects", icon: <BsBook /> },
-  {
-    title: "Contact",
-    href: "/#contact",
-    icon: <FcContacts color="white" className="text-white" />,
-  },
-  { title: "Blog", href: "/blog", icon: <RiMenu4Line /> },
-  {
-    title: "Connexion",
-    href: "/admin/dashboard/connexion",
-    icon: <MdDashboard />,
-  },
+  { title: "About", href: "/#about" },
+  { title: "Projects", href: "/#projects" },
+  { title: "Experience", href: "/#experience" },
+  { title: "Blog", href: "/blog" },
 ];
 
 function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isMenuOpen]);
 
   const handleLinkClick = () => {
     if (isMenuOpen) {
@@ -44,69 +27,83 @@ function Nav() {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-gray-900/90 backdrop-blur-lg shadow-lg"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="container mx-auto flex items-center justify-between p-4 text-white">
-        <h1 className="text-3xl font-[cormorant]">
-          <Link href="/" className="hover:text-cyan-400 transition-colors">
-            Wilson&Dev
-          </Link>
-        </h1>
-
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.title}
-              href={link.href}
-              onClick={handleLinkClick}
-              className="flex items-center gap-2 text-lg font-[cormorant] uppercase transition-colors hover:text-cyan-400"
-            >
-              <span>{link.icon}</span>
-              <span>{link.title}</span>
-            </Link>
-          ))}
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <div className="md:hidden">
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="z-50">
-            {isMenuOpen ? (
-              <IoIosCloseCircleOutline className="h-8 w-8 text-cyan-400" />
-            ) : (
-              <RiMenu4Line className="h-8 w-8 text-white" />
-            )}
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        <div
-          className={`fixed top-0 left-0 w-full h-screen bg-gray-900/95 md:hidden flex flex-col items-center justify-center transition-transform duration-300 ease-in-out ${
-            isMenuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#080d10]/95 text-white backdrop-blur">
+      <nav
+        className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:px-8"
+        aria-label="Navigation principale"
+      >
+        <Link
+          href="/"
+          className="flex items-center gap-2 font-mono text-sm font-bold tracking-wide text-[#27d3e5]"
+          onClick={handleLinkClick}
         >
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="absolute top-4 right-4"
-          >
-            <IoIosCloseCircleOutline className="h-8 w-8 text-cyan-400" />
-          </button>
+          <LuCodeXml aria-hidden="true" className="h-5 w-5" />
+          KOFFI.DEV
+        </Link>
+
+        <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.title}
               href={link.href}
               onClick={handleLinkClick}
-              className="flex items-center gap-2 text-3xl font-[cormorant] uppercase py-4 text-white hover:text-cyan-400 transition-colors"
+              className="text-xs font-medium tracking-wide text-[#a6b2ba] transition-colors hover:text-white"
             >
-              <span>{link.icon}</span>
-              <span>{link.title}</span>
+              {link.title}
             </Link>
           ))}
+        </div>
+
+        <a
+          href="mailto:wilsonikedakoffi7@gmail.com"
+          className="hidden items-center gap-2 rounded-md bg-[#27d3e5] px-4 py-2 text-xs font-bold text-[#061116] transition-colors hover:bg-[#83eff7] md:flex"
+        >
+          Contact <span aria-hidden="true">↗</span>
+        </a>
+
+        <button
+          type="button"
+          aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="rounded p-2 text-[#dce5e8] hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#27d3e5] md:hidden"
+        >
+          {isMenuOpen ? (
+            <LuX className="h-5 w-5" />
+          ) : (
+            <LuMenu className="h-5 w-5" />
+          )}
+        </button>
+
+        <div
+          id="mobile-navigation"
+          className={`absolute inset-x-0 top-16 flex flex-col gap-1 border-b border-white/10 bg-[#080d10] px-5 pb-5 pt-3 shadow-xl transition-[opacity,transform,visibility] md:hidden ${
+            isMenuOpen
+              ? "visible translate-y-0 opacity-100"
+              : "invisible -translate-y-2 opacity-0"
+          }`}
+          aria-hidden={!isMenuOpen}
+        >
+          {navLinks.map((link) => (
+            <Link
+              key={link.title}
+              href={link.href}
+              onClick={handleLinkClick}
+              tabIndex={isMenuOpen ? 0 : -1}
+              className="rounded px-3 py-3 text-sm text-[#c1ccd1] transition-colors hover:bg-white/5 hover:text-white"
+            >
+              {link.title}
+            </Link>
+          ))}
+          <a
+            href="mailto:wilsonikedakoffi7@gmail.com"
+            onClick={handleLinkClick}
+            tabIndex={isMenuOpen ? 0 : -1}
+            className="mt-2 rounded-md bg-[#27d3e5] px-4 py-3 text-center text-sm font-bold text-[#061116]"
+          >
+            Me contacter
+          </a>
         </div>
       </nav>
     </header>
