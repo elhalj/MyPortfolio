@@ -1,42 +1,43 @@
-import React from "react";
 import { FaGraduationCap } from "react-icons/fa";
 
 const Formation = () => {
   return (
-    <div>
-      <div className="flex items-center gap-4 px-4 md:px-8 py-4 bg-gray-800 uppercase border-y border-gray-700 text-white">
-        <FaGraduationCap />
-        <h1>FORMATION</h1>
+    <section aria-labelledby="education-title">
+      <div className="mb-4 flex items-center gap-2 text-[#8d9ba3]">
+        <FaGraduationCap
+          aria-hidden="true"
+          className="h-4 w-4 text-[#27d3e5]"
+        />
+        <h3
+          id="education-title"
+          className="font-mono text-[10px] uppercase tracking-wide"
+        >
+          Formation
+        </h3>
       </div>
-      <div className="p-4 md:px-32 uppercase font-bold grid grid-cols-1 md:grid-cols-1 items-center text-center gap-4">
-        <div className="relative flex flex-col md:flex-row items-start gap-4 bg-gray-800 p-8 hover:scale-105 hover:translate-y-0 transition-transform duration-300 text-gray-300">
-          <div className="flex justify-center items-center bg-gray-700 border border-cyan-400 w-20 h-20 p-4">
-            <FaGraduationCap className="text-7xl text-cyan-400" />
-          </div>
-          <div className="text-left flex flex-col gap-2">
-            <h1 className="text-3xl">
-              Certificat en Software Developpeur - Developpeur Web/Mobile
-            </h1>
-            <p>GoMycode</p>
-            <p>Abidjan</p>
-            <p>2024 - 2025</p>
-          </div>
-        </div>
-        <div className="relative flex flex-col md:flex-row items-start gap-4 bg-gray-800 p-8 hover:scale-105 hover:translate-y-0 transition-transform duration-300 text-gray-300">
-          <div className="flex justify-center items-center bg-gray-700 border border-cyan-400 w-20 h-20 p-4">
-            <FaGraduationCap className="text-7xl text-cyan-400" />
-          </div>
-          <div className="text-left flex flex-col gap-2">
-            <h1 className="text-3xl">
-              Informatique Developpeur d'Application
-            </h1>
-            <p>Legacy Institute</p>
-            <p>Abidjan</p>
-            <p>2020 - 2021</p>
-          </div>
-        </div>
+      <div className="grid gap-3">
+        <article className="rounded-md border border-white/10 bg-white/2.5 p-5">
+          <h4 className="font-semibold leading-snug text-[#e3eaed]">
+            Certificat en développement logiciel · Développement web et mobile
+          </h4>
+          <p className="mt-2 text-sm text-[#aab7bd]">GoMyCode · Abidjan</p>
+          <p className="mt-2 font-mono text-[10px] text-[#74838b]">
+            2024 — 2025
+          </p>
+        </article>
+        <article className="rounded-md border border-white/10 bg-white/2.5 p-5">
+          <h4 className="font-semibold leading-snug text-[#e3eaed]">
+            Informatique · Développement d'applications
+          </h4>
+          <p className="mt-2 text-sm text-[#aab7bd]">
+            Legacy Institute · Abidjan
+          </p>
+          <p className="mt-2 font-mono text-[10px] text-[#74838b]">
+            2020 — 2021
+          </p>
+        </article>
       </div>
-    </div>
+    </section>
   );
 };
 

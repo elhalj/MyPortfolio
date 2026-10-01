@@ -1,17 +1,18 @@
-import React from "react";
-import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Description from "@/components/sections/Description";
+import Hero from "@/components/sections/Hero";
 import Projects from "@/components/sections/Projects";
+import VueEnsemble from "@/components/sections/VueEnsemble";
 
 function Main() {
   return (
-    <main className="bg-gray-900 text-white">
+    <div className="min-h-screen bg-[var(--ink)] text-[var(--paper)]">
       <Hero />
+      <VueEnsemble />
+      <Projects />
       <About />
       <Description />
-      <Projects />
-    </main>
+    </div>
   );
 }
 

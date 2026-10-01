@@ -6,6 +6,7 @@
 - Dashboard admin : `/admin/dashboard` (auth Convex + localStorage)
 - Blog public : `/blog`
 - Page CV & ressources : `/portfolio`
+- Guide des contextes et orchestrations IA : [README-IA.md](README-IA.md)
 
 ## Sommaire
 

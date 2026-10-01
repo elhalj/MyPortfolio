@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function PortfolioPage() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white p-6">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-gray-900 via-gray-800 to-gray-900 text-white p-6">
       <ul className="grid grid-cols-1 md:grid-cols-2 max-w-4xl w-full mx-auto gap-6">
         {cvData.map((item) => (
           <li
